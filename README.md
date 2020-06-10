@@ -13,23 +13,12 @@ Para acceder a los metodos del framework, la clase Page debe extender de la clas
 > BaseWebPage
 
 
-<h3>¿Cómo genero el reporte?</h3>
-Para tomar evidencia en formato html, se deberá utlizar el siguiente metodo despues de cada interacción que se quiera
-evidenciar.
-> mvn clean verify -Dcucumber.options="--tags @TAG" -Dmainframe.user="XXXXX" -Dmainframe.password="XXXXX"
+<h3>¿Cómo ejecuto el proyecto?</h3>
+> mvn clean verify -Dcucumber.options="--tags @TAG"
 
-<h3>¿Dónde encuentro el reporte de las pantallas y de la ejecución?</h3>
-Las evidencias de las pantallas en HTML se encontrarán ordenadas por fecha en la siguiente ruta:
-> /report
 
 El reporte total generado por serenity se encontrará en la siguiente ruta:
 > /target/site/serenity
-
-<h3>Comando para la ejecucion por terminal:</h3>
-> mvn clean verify -Dcucumber.options="--tags @TAG" -Dmainframe.user="XXXXX" -Dmainframe.password="XXXXX"
-* mainframe.user = Usuario con permisos para ingresar al core bancario.
-* mainframe.password = Contrasena del usuario.
-* @TAG = Tag a ejecutar declarado en el escenario del feature.
 
 <h2>Dependencias</h2>
 El framework tiene como unica dependencia el JAR <b>mainframe-continuous-testing</b> el cual será descargado

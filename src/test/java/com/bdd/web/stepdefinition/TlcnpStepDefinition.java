@@ -11,10 +11,10 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 
 
-public class tlcnpStepDefinition {
+public class TlcnpStepDefinition {
 
     @Steps
-    private tlcnpSteps loginBcpSteps;
+    private TlcnpSteps loginBcpSteps;
 
     @Given("^Cargar la pagina de TLCNp$")
     public void cargar_la_pagina_de_TLCNp() throws MalformedURLException {

@@ -15,7 +15,7 @@ import java.util.List;
 
 
 @DefaultUrl("http://ptbiewasc02:9082/tlcnp/")
-public class tlcnpPage extends BaseWebPage {
+public class TlcnpPage extends BaseWebPage {
 
 
     @FindBy(xpath = "//a[contains(text(),'Mapa del sitio')]")

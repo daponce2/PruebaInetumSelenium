@@ -9,15 +9,15 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 
 
-public class tlcnpSteps extends ScenarioSteps {
+public class TlcnpSteps extends ScenarioSteps {
 
-    private tlcnpPage loginPage;
+    private TlcnpPage loginPage;
     private String cuentaDestino;
     private String cuentaAbono;
     private String monedaSigno;
     private String CuentaOrigen;
 
-    @Step("Cargar página de TLCNP")
+    @Step("Cargar pagina de TLCNP")
     public void cargarPaginaTLCNp() throws MalformedURLException {
         System.out.println("iniciando chrome");
 
@@ -58,14 +58,6 @@ public class tlcnpSteps extends ScenarioSteps {
         loginPage.clicbtnContinuar();
     }
 
-
-
-
-
-
-
-
-
     @Step("Escribir tarjeta")
     public void escribirTarjeta(String sTarjeta, String clave) {
         loginPage.escribirTarjeta(sTarjeta, clave);
@@ -84,11 +76,11 @@ public class tlcnpSteps extends ScenarioSteps {
         this.CuentaOrigen =ctaOrigen;
     }
 
-    @Step("Guardar numero de opeeación")
+    @Step("Guardar numero de operacion")
     public void guardarNumeropOP(String num, String monto) throws IOException {
         loginPage.guardarNumeropOP(num,this.cuentaDestino,this.cuentaAbono,monto,this.monedaSigno);
     }
-    @Step("Guardar numero de opeeación Externo")
+    @Step("Guardar numero de operacion Externo")
     public void guardarNumeropOPExterno(String num, String monto, String cuentaDestino) throws IOException {
         loginPage.guardarNumeropOP(num,cuentaDestino,this.cuentaAbono,monto,this.monedaSigno);
     }
