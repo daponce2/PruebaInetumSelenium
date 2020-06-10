@@ -4,7 +4,6 @@ package com.bdd.web.step;
 import com.bdd.web.page.tlcnpPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
-import web.com.bdd.lib.WebDriverManager;
 
 import java.io.IOException;
 import java.net.MalformedURLException;

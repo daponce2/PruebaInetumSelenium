@@ -7,14 +7,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.FindBy;
-import web.com.bdd.base.BaseWebPage;
 
 import java.io.IOException;
 import java.util.List;
 
-import static com.bdd.web.util.Util.getIndiceSegunNumeroCuenta;
-import static com.bdd.web.util.Util.getTipoMonedaSegunNumeroCuenta;
-import static web.com.bdd.util.UtilWeb.createResponseFile;
+
 
 
 @DefaultUrl("http://ptbiewasc02:9082/tlcnp/")
