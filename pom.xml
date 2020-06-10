@@ -4,13 +4,18 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.everis.ct.web.example</groupId>
-    <artifactId>web.example</artifactId>
+    <groupId>com.everis.continuous-testing</groupId>
+    <artifactId>web-example-ct</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <serenity.version>2.1.7</serenity.version>
+        <serenity.maven.version>2.1.7</serenity.maven.version>
+        <serenity.cucumber.version>1.9.51</serenity.cucumber.version>
+    </properties>
 
-
-    <!-- configuracion al artifactory BCP -->
+    <!-- configuracion al artifactory BCP
     <repositories>
         <repository>
             <snapshots>
@@ -26,7 +31,7 @@
             <url>http://10.79.6.36:8081/artifactory/public.snapshots</url>
         </repository>
     </repositories>
-    <!-- configuracion al artifactory BCP -->
+  configuracion al artifactory BCP -->
 
     <dependencies>
         <dependency>
@@ -35,7 +40,6 @@
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
-
 
     <build>
         <plugins>
@@ -58,7 +62,6 @@
                     </execution>
                 </executions>
             </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -73,6 +76,7 @@
                 <configuration>
                     <includes>
                         <include>**/*RunnerTest.java</include>
+                        <include>**/RunnerTest.java</include>
                     </includes>
                     <reuseForks>true</reuseForks>
                     <!--<forkCount>2</forkCount>-->
@@ -99,12 +103,12 @@
             <plugin>
                 <groupId>net.serenity-bdd.maven.plugins</groupId>
                 <artifactId>serenity-maven-plugin</artifactId>
-                <version>2.0.54</version>
+                <version>${serenity.maven.version}</version>
                 <dependencies>
                     <dependency>
                         <groupId>net.serenity-bdd</groupId>
                         <artifactId>serenity-core</artifactId>
-                        <version>2.1.7</version>
+                        <version>${serenity.version}</version>
                     </dependency>
                 </dependencies>
                 <executions>
@@ -117,14 +121,7 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>8</source>
-                    <target>8</target>
-                </configuration>
-            </plugin>
         </plugins>
     </build>
+
 </project>

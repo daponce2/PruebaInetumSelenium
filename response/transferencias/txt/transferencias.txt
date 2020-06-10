@@ -10,3 +10,9 @@ Cuenta Abono: 193-1550736-1-08
 Cuenta Destino: 193-1551734-0-79
 Monto: US$ 10
 ------------------------------
+Tarjeta: 5001207417
+Numero de Operación: 584738
+Cuenta Abono: 193-1550736-1-08
+Cuenta Destino: 193-1551734-0-79
+Monto: US$ 10
+------------------------------

@@ -1,6 +1,6 @@
 package com.bdd.web.stepdefinition;
 
-import com.bdd.web.step.tlcnpSteps;
+import com.bdd.web.step.TlcnpSteps;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;

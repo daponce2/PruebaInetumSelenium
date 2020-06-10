@@ -15,5 +15,5 @@ Feature: Transferencias entre cuentas
     And envio a firma "<sAccion>"
     And Guardar numero de operacion "<sTarjeta>" con "<sMonto>"
     Examples:
-      | sMonto    | sMoneda |   sCuentaDestino      |     sCuenta        |   sClave  |    sTipoTarjeta      | sTarjeta   |     sAccion     | sMismaMoneda   |
-      | 10        |    US$  |   193-1551734-0-79    |   193-1550736-1-08 |   111111  | Acceso Empresarial   | 5001207417 |  Enviar a firma |      true      |
+      | sMonto | sMoneda | sCuentaDestino   | sCuenta          | sClave | sTipoTarjeta       | sTarjeta   | sAccion        | sMismaMoneda |
+      | 10     | US$     | 193-1551734-0-79 | 193-1550736-1-08 | 111111 | Acceso Empresarial | 5001207417 | Enviar a firma | true         |

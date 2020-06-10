@@ -2,7 +2,7 @@ package com.bdd.providers;
 
 public class BodyServices {
 
-    public static String getCustomerForIDC(String IDC){
+    public static String getCustomerForIDC(String IDC) {
 
         String body = "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:mfx=\"http://mfxV1_1/CltDatosGralInqV3\">\n" +
                 "    <soapenv:Header>\n" +
@@ -55,7 +55,7 @@ public class BodyServices {
                 "                                               </mfx:MsjRqHdr>\n" +
                 "                                               <mfx:SelFlg>1111</mfx:SelFlg>\n" +
                 "                                               <mfx:CltDatosGralInqRef>\n" +
-                "                                               <mfx:IDC>  " + IDC +"   </mfx:IDC>\n" +
+                "                                               <mfx:IDC>  " + IDC + "   </mfx:IDC>\n" +
                 "                                               </mfx:CltDatosGralInqRef>\n" +
                 "                                            </mfx:CltDatosGralInqRq>\n" +
                 "                              </mfx:MFX_CltDatosGralInq>\n" +
@@ -65,7 +65,8 @@ public class BodyServices {
         return body;
 
     }
-    public static String getCICCustomerCreateCuentaAhorro(String IDC, String CIC,String codeCuentaCls,String codeCuenta, String codeMoneda, String codeCuentaCl2s){
+
+    public static String getCICCustomerCreateCuentaAhorro(String IDC, String CIC, String codeCuentaCls, String codeCuenta, String codeMoneda, String codeCuentaCl2s) {
         String body = "<soapenv:Envelope\n" +
                 " xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n" +
                 " xmlns:mfx=\"http://mfxV1_1/CltDatosGralInqV3\"> <soapenv:Header>\n" +
@@ -115,7 +116,7 @@ public class BodyServices {
                 " </p362:RegRqCtrl>\n" +
                 " <p362:CtaDepAddRef>\n" +
                 " <p362:CtaDepApertura>\n" +
-                " <p362:ClsEstFamCod>"+codeCuenta+"</p362:ClsEstFamCod> <p362:MonCod>"+codeMoneda+"</p362:MonCod> <p362:CtaCls2Cod>"+codeCuentaCl2s+"</p362:CtaCls2Cod> <p362:CtaCls3Cod>101</p362:CtaCls3Cod> <p362:NomCompleto>SALGUERO TERRAZAS LUIS</p362:NomCompleto> <p362:CIC>    "+CIC+"</p362:CIC> <p362:CtaCls1Cod>PRICTA</p362:CtaCls1Cod> <p362:IDC>    "+IDC+"   </p362:IDC> </p362:CtaDepApertura>\n" +
+                " <p362:ClsEstFamCod>" + codeCuenta + "</p362:ClsEstFamCod> <p362:MonCod>" + codeMoneda + "</p362:MonCod> <p362:CtaCls2Cod>" + codeCuentaCl2s + "</p362:CtaCls2Cod> <p362:CtaCls3Cod>101</p362:CtaCls3Cod> <p362:NomCompleto>SALGUERO TERRAZAS LUIS</p362:NomCompleto> <p362:CIC>    " + CIC + "</p362:CIC> <p362:CtaCls1Cod>PRICTA</p362:CtaCls1Cod> <p362:IDC>    " + IDC + "   </p362:IDC> </p362:CtaDepApertura>\n" +
                 " </p362:CtaDepAddRef>\n" +
                 " </p362:CtaDepAddRq>\n" +
                 " </p362:MFX_CtaDepAdd>\n" +
@@ -128,8 +129,7 @@ public class BodyServices {
     }
 
 
-
-    public static String getCICCustomerCreateCC(String IDC, String CIC, String codeCuentaCls,String codeCuenta,String codeMoneda,String codeCuentaCl2s){
+    public static String getCICCustomerCreateCC(String IDC, String CIC, String codeCuentaCls, String codeCuenta, String codeMoneda, String codeCuentaCl2s) {
         String body = "<soapenv:Envelope\n" +
                 " xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n" +
                 " xmlns:mfx=\"http://mfxV1_1/CtaDepAddV1\"> <soapenv:Header>\n" +
@@ -179,8 +179,8 @@ public class BodyServices {
                 " </p362:RegRqCtrl>\n" +
                 " <p362:CtaDepAddRef>\n" +
                 " <p362:CtaDepApertura>\n" +
-                " <p362:ClsEstFamCod>"+codeCuenta+"</p362:ClsEstFamCod> <p362:MonCod>"+codeMoneda+"</p362:MonCod> <p362:CtaCls2Cod>"+codeCuentaCl2s+"</p362:CtaCls2Cod> <p362:CtaCls3Cod>"+codeCuentaCls+"</p362:CtaCls3Cod> <p362:NomCompleto>PRUEBA TESTING</p362:NomCompleto> <p362:CIC>    "+CIC+"</p362:CIC> <p362:CtaMancomTp/>\n" +
-                " <p362:BancaTp>BE</p362:BancaTp> <p362:CIIU>9309</p362:CIIU> <p362:CltExclusivoTp>CL</p362:CltExclusivoTp> <p362:SectoristaCod>00001</p362:SectoristaCod> <p362:ChequeraFlg>1</p362:ChequeraFlg> <p362:IDC>    "+IDC+"   </p362:IDC> </p362:CtaDepApertura>\n" +
+                " <p362:ClsEstFamCod>" + codeCuenta + "</p362:ClsEstFamCod> <p362:MonCod>" + codeMoneda + "</p362:MonCod> <p362:CtaCls2Cod>" + codeCuentaCl2s + "</p362:CtaCls2Cod> <p362:CtaCls3Cod>" + codeCuentaCls + "</p362:CtaCls3Cod> <p362:NomCompleto>PRUEBA TESTING</p362:NomCompleto> <p362:CIC>    " + CIC + "</p362:CIC> <p362:CtaMancomTp/>\n" +
+                " <p362:BancaTp>BE</p362:BancaTp> <p362:CIIU>9309</p362:CIIU> <p362:CltExclusivoTp>CL</p362:CltExclusivoTp> <p362:SectoristaCod>00001</p362:SectoristaCod> <p362:ChequeraFlg>1</p362:ChequeraFlg> <p362:IDC>    " + IDC + "   </p362:IDC> </p362:CtaDepApertura>\n" +
                 " </p362:CtaDepAddRef>\n" +
                 " </p362:CtaDepAddRq>\n" +
                 " </p362:MFX_CtaDepAdd>\n" +
@@ -192,7 +192,7 @@ public class BodyServices {
 
     }
 
-    public static String getReviewCustomerForIDC(String IDC){
+    public static String getReviewCustomerForIDC(String IDC) {
 
         String body = "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:mfx=\"http://mfxV1_1/CltDatosGralInqV3\"> <soapenv:Header>\n" +
                 " <wsse:Security soapenv:mustUnderstand=\"1\" xmlns:wsse=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\"> <wsse:UsernameToken>\n" +
@@ -234,7 +234,7 @@ public class BodyServices {
                 " <mfx:ApellidoPaterno/>\n" +
                 " <mfx:ApellidoMaterno/>\n" +
                 " </mfx:CltNom>\n" +
-                " <mfx:IDC> "+IDC+"   </mfx:IDC> <mfx:BancaTp>P</mfx:BancaTp> <mfx:Genero/>\n" +
+                " <mfx:IDC> " + IDC + "   </mfx:IDC> <mfx:BancaTp>P</mfx:BancaTp> <mfx:Genero/>\n" +
                 " <mfx:StatusCivil/>\n" +
                 " <mfx:StatusOcupacional/>\n" +
                 " <mfx:Nacionalidad/>\n" +
@@ -269,7 +269,8 @@ public class BodyServices {
         return body;
 
     }
-    public static String getCICforIDC(String IDC){
+
+    public static String getCICforIDC(String IDC) {
 
         String body = "<soapenv:Envelope\n" +
                 " xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n" +
@@ -318,7 +319,7 @@ public class BodyServices {
                 " </CtxRqHdr>\n" +
                 " </MsjRqHdr>\n" +
                 " <CltDatosGralInqRef>\n" +
-                " <IDC>    "+IDC+"   </IDC> </CltDatosGralInqRef>\n" +
+                " <IDC>    " + IDC + "   </IDC> </CltDatosGralInqRef>\n" +
                 " </CltDatosGralInqRq>\n" +
                 " </MFX_CltDatosGralInq> </soapenv:Body>\n" +
                 " </soapenv:Envelope>\n" +
