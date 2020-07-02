@@ -88,8 +88,8 @@ pipeline {
                     finally {
                         println('Deteniendo Contenedores')
                         sh 'docker ps -a'
-                       // sh 'docker stop selenium-nodo-chrome'
-                       // sh 'docker stop selenium-hub'
+                        sh 'docker stop selenium-nodo-chrome'
+                        sh 'docker stop selenium-hub'
                         // sh 'docker rmi dockerdesa.lima.bcp.com.pe/bcp/maven339-selenium-nodo-chrome3_141:1.4'
                         // sh 'docker rmi dockerdesa.lima.bcp.com.pe/bcp/maven339-selenium-hub3_141:1.5'
                     }
