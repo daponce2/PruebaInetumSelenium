@@ -27,7 +27,7 @@ desde el artifactory de BCP, para esto la configuración de esta descarga se enc
 <h5>¿Qué hago si no descarga la dependenicia?</h5>
 Cuando el jar no descarga directamente desde el artifactory de BCP, realizar los siguientes pasos de contingencia:
 
-1.-  Ir al artifactory y descargar directamente el jar <b>api-continuous-testing</b>
+1.-  Ir al artifactory y descargar directamente el jar <b>web-continuous-testing</b>
 
 ```    
 https://artifactorydesa.lima.bcp.com.pe/artifactory/webapp/#/artifacts/browse/tree/General/INCT.Snapshot/com/everis/continuous-testing/mainframe-continuous-testing/1.0-SNAPSHOT
