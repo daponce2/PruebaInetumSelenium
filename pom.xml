@@ -15,7 +15,7 @@
         <serenity.cucumber.version>1.9.51</serenity.cucumber.version>
     </properties>
 
-    <!-- configuracion al artifactory BCP -->
+    <!-- configuracion al artifactory BCP
     <repositories>
         <repository>
             <snapshots>
@@ -31,7 +31,7 @@
             <url>http://10.79.6.36:8081/artifactory/public.snapshots</url>
         </repository>
     </repositories>
-    <!-- configuracion al artifactory BCP -->
+   configuracion al artifactory BCP -->
 
     <dependencies>
         <dependency>

@@ -9,8 +9,9 @@ import org.junit.runner.RunWith;
         features = {"src/test/resources/features"},
         junit = {"--step-notifications"},
         glue = {"com.bdd.web.stepdefinition"},
-        tags = {"@DEMO01"}
+        tags = {"@DEMO"}
 )
 public class RunnerTest {
+
 
 }
