@@ -60,3 +60,33 @@ https://artifactorydesa.lima.bcp.com.pe/artifactory/webapp/#/artifacts/browse/tr
     $mvn intall -DskipTests
     
     Volver a reimportar las dependencias
+    
+
+## Integración con JXRAY
+
+Agregar el siguiente código para actualizar el estado de los Test en 
+el TestExecution de Jxray
+
+``` 
+public class StepDefinition {
+
+    ...
+    protected static EnvironmentVariables environmentVariables;
+    ...
+
+``` 
+  
+```  
+    public class RunnerTest extends StepDefinition {
+    
+        @AfterClass
+        public static void after(){
+            JXrayServiceDom jXrayServiceDom = new JXrayServiceDom();
+            jXrayServiceDom.importTestResultExecution(
+                    new HelperCredencials(environmentVariables).getPathResource(),
+                    System.getProperty("user.dir")+"/target/build/cucumber.json",
+                    new HelperCredencials(environmentVariables).getJXrayUser(),
+                    new HelperCredencials(environmentVariables).getJXrayPassword());
+        }
+    }
+```
