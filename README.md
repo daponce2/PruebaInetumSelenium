@@ -67,6 +67,7 @@ https://artifactorydesa.lima.bcp.com.pe/artifactory/webapp/#/artifacts/browse/tr
 Agregar el siguiente código para actualizar el estado de los Test en 
 el TestExecution de Jxray
 
+Declarar variable EnvironmentVariables en la clase StepDefinition
 ``` 
 public class StepDefinition {
 
@@ -76,6 +77,9 @@ public class StepDefinition {
 
 ``` 
   
+  
+En la clase RunnerTest exteneder de la clase StepDefinition, y llamar al metodo importTestResultExecution
+de la clase JXrayServiceDom ubicada en el jar dependencia
 ```  
     public class RunnerTest extends StepDefinition {
     
@@ -90,3 +94,4 @@ public class StepDefinition {
         }
     }
 ```
+    
