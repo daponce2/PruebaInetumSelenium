@@ -15,7 +15,7 @@
         <serenity.cucumber.version>1.9.51</serenity.cucumber.version>
     </properties>
 
-    <!-- configuracion al artifactory BCP
+    <!--Configuracion ART-DESA-BCP -->
     <repositories>
         <repository>
             <snapshots>
@@ -23,15 +23,32 @@
             </snapshots>
             <id>central</id>
             <name>public</name>
-            <url>http://10.79.6.36:8081/artifactory/public</url>
+            <url>https://artifactorydesa.lima.bcp.com.pe/artifactory/public</url>
         </repository>
         <repository>
+            <snapshots />
             <id>snapshots</id>
             <name>public.snapshots</name>
-            <url>http://10.79.6.36:8081/artifactory/public.snapshots</url>
+            <url>https://artifactorydesa.lima.bcp.com.pe/artifactory/public.snapshots</url>
         </repository>
     </repositories>
-   configuracion al artifactory BCP -->
+    <pluginRepositories>
+        <pluginRepository>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <id>central</id>
+            <name>public</name>
+            <url>https://artifactorydesa.lima.bcp.com.pe/artifactory/public</url>
+        </pluginRepository>
+        <pluginRepository>
+            <snapshots />
+            <id>snapshots</id>
+            <name>public.snapshots</name>
+            <url>https://artifactorydesa.lima.bcp.com.pe/artifactory/public.snapshots</url>
+        </pluginRepository>
+    </pluginRepositories>
+    <!--Configuracion ART-DESA-BCP -->
 
     <dependencies>
         <dependency>

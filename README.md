@@ -20,47 +20,88 @@ Para acceder a los metodos del framework, la clase Page debe extender de la clas
 El reporte total generado por serenity se encontrará en la siguiente ruta:
 > /target/site/serenity
 
-<h2>Dependencias<h2>
-El framework tiene como unica dependencia el JAR <b>api-continuous-testing</b> el cual será descargado
+<h2>Dependencias</h2>
+El framework tiene como unica dependencia el JAR <b>web-continuous-testing</b> el cual será descargado
 desde el artifactory de BCP, para esto la configuración de esta descarga se encuentra en el pom.xml
 
-<h5>¿Qué hago si no descarga la dependenicia?</h5>
-Cuando el jar no descarga directamente desde el artifactory de BCP, realizar los siguientes pasos de contingencia:
-
-1.-  Ir al artifactory y descargar directamente el jar <b>web-continuous-testing</b>
-
-```    
-https://artifactorydesa.lima.bcp.com.pe/artifactory/webapp/#/artifacts/browse/tree/General/INCT.Snapshot/com/everis/continuous-testing/mainframe-continuous-testing/1.0-SNAPSHOT
+<h5>ARTIFACTORY DESARROLLO</h5>
+Agregar el siguiente bloque en el pom.xml para descargar desde el artifactory de Desarrollo
+```  
+ <repositories>
+         <repository>
+             <snapshots>
+                 <enabled>false</enabled>
+             </snapshots>
+             <id>central</id>
+             <name>public</name>
+             <url>https://artifactorydesa.lima.bcp.com.pe/artifactory/public</url>
+         </repository>
+         <repository>
+             <snapshots />
+             <id>snapshots</id>
+             <name>public.snapshots</name>
+             <url>https://artifactorydesa.lima.bcp.com.pe/artifactory/public.snapshots</url>
+         </repository>
+     </repositories>
+     <pluginRepositories>
+         <pluginRepository>
+             <snapshots>
+                 <enabled>false</enabled>
+             </snapshots>
+             <id>central</id>
+             <name>public</name>
+             <url>https://artifactorydesa.lima.bcp.com.pe/artifactory/public</url>
+         </pluginRepository>
+         <pluginRepository>
+             <snapshots />
+             <id>snapshots</id>
+             <name>public.snapshots</name>
+             <url>https://artifactorydesa.lima.bcp.com.pe/artifactory/public.snapshots</url>
+         </pluginRepository>
+     </pluginRepositories>
 ```
 
-2.-  Comentar la sección de configuración del artifactory en el pom.xml
- ```  
-     <repositories>
-            <repository>
-                <snapshots>
-                    <enabled>false</enabled>
-                </snapshots>
-                <id>central</id>
-                <name>public</name>
-                <url>http://10.79.6.36:8081/artifactory/public</url>
-            </repository>
-            <repository>
-                <id>snapshots</id>
-                <name>public.snapshots</name>
-                <url>http://10.79.6.36:8081/artifactory/public.snapshots</url>
+<h5>ARTIFACTORY PRODUCCIÓN</h5>
+Agregar el siguiente bloque en el pom.xml para descargar desde el artifactory de Producción
+```  
+<repositories>
+        <repository>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <id>central</id>
+          <name>public</name>
+          <url>https://artifactory.lima.bcp.com.pe/artifactory/public</url>
         </repository>
-  </repositories>
+        <repository>
+          <snapshots />
+          <id>snapshots</id>
+          <name>public.snapshot</name>
+          <url>https://artifactory.lima.bcp.com.pe/artifactory/public.snapshot</url>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <id>central</id>
+          <name>public</name>
+          <url>https://artifactory.lima.bcp.com.pe/artifactory/public</url>
+        </pluginRepository>
+        <pluginRepository>
+          <snapshots />
+          <id>snapshots</id>
+          <name>public.snapshot</name>
+          <url>https://artifactory.lima.bcp.com.pe/artifactory/public.snapshot</url>
+        </pluginRepository>
+      </pluginRepositories>
 ```
-      
-3.-  Copiar el jar <b>api-continuous-testing</b> dentro del modulo de trabajo y "Agregar como Libreria".
 
-4.- Ejecutar los comandos:
+Ejecutar los comandos:
     
-    $mvn org.apache.maven.plugins:maven-install-plugin:3.0.0-M1:install-file -Dfile=<path-jar>
-    $mvn intall -DskipTests
-    
-    Volver a reimportar las dependencias
-    
+    * $mvn intall -DskipTests
+    * Volver a reimportar las dependencias   
 
 ## Integración con JXRAY
 
