@@ -26,6 +26,7 @@ desde el artifactory de BCP, para esto la configuración de esta descarga se enc
 
 <h5>ARTIFACTORY DESARROLLO</h5>
 Agregar el siguiente bloque en el pom.xml para descargar desde el artifactory de Desarrollo
+
 ```  
  <repositories>
          <repository>
@@ -63,6 +64,7 @@ Agregar el siguiente bloque en el pom.xml para descargar desde el artifactory de
 
 <h5>ARTIFACTORY PRODUCCIÓN</h5>
 Agregar el siguiente bloque en el pom.xml para descargar desde el artifactory de Producción
+
 ```  
 <repositories>
         <repository>
