@@ -110,7 +110,14 @@ Ejecutar los comandos:
 Agregar el siguiente código para actualizar el estado de los Test en 
 el TestExecution de Jxray
 
+Configuracion serenity.properties (true|false)
+
+``` 
+    jxray.update.evidence=false
+``` 
+
 Declarar variable EnvironmentVariables en la clase StepDefinition
+
 ``` 
 public class StepDefinition {
 
@@ -120,21 +127,30 @@ public class StepDefinition {
 
 ``` 
   
-  
 En la clase RunnerTest exteneder de la clase StepDefinition, y llamar al metodo importTestResultExecution
 de la clase JXrayServiceDom ubicada en el jar dependencia
+
 ```  
     public class RunnerTest extends StepDefinition {
     
         @AfterClass
         public static void after(){
-            JXrayServiceDom jXrayServiceDom = new JXrayServiceDom();
-            jXrayServiceDom.importTestResultExecution(
-                    new HelperCredencials(environmentVariables).getPathResource(),
-                    System.getProperty("user.dir")+"/target/build/cucumber.json",
-                    new HelperCredencials(environmentVariables).getJXrayUser(),
-                    new HelperCredencials(environmentVariables).getJXrayPassword());
-        }
+             if(Boolean.valueOf(EnvironmentSpecificConfiguration.from(environmentVariables).getProperty("jxray.update.evidence"))){
+                        System.out.println("Actualizar resultados en JiraXray: ACTIVADO");
+                        JXrayServiceDom jXrayServiceDom = new JXrayServiceDom();
+                        jXrayServiceDom.importTestResultExecution(
+                                new HelperCredentials(environmentVariables).getPathResource(),
+                                System.getProperty("user.dir")+"/target/build/cucumber.json",
+                                new HelperCredentials(environmentVariables).getJXrayUser(),
+                                new HelperCredentials(environmentVariables).getJXrayPassword());
+                    }else{
+                        System.out.println("Actualizar resultados en JiraXray: DESACTIVADO");
+                    }
     }
 ```
-    
+
+### Ejecución JIRA XRAY - actualizar Test en TestExecution
+
+```  
+    -Djxray.update.evidence=true
+```
