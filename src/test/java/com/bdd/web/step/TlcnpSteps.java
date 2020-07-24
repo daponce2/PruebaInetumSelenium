@@ -3,6 +3,7 @@ package com.bdd.web.step;
 import com.bdd.web.page.TlcnpPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
+import net.thucydides.core.util.EnvironmentVariables;
 import web.com.bdd.lib.WebDriverManager;
 
 import java.io.IOException;
@@ -17,11 +18,11 @@ public class TlcnpSteps extends ScenarioSteps {
     private String monedaSigno;
     private String CuentaOrigen;
 
+    private EnvironmentVariables environmentVariables;
+
     @Step("Cargar pagina de TLCNP")
     public void cargarPaginaTLCNp() throws MalformedURLException {
-        System.out.println("iniciando chrome");
-
-        loginPage.setDriver(WebDriverManager.setWebDriver("chrome"));
+        loginPage.setDriver(WebDriverManager.setWebDriver(environmentVariables));
         loginPage.open();
         loginPage.getDriver().manage().window().maximize();
 

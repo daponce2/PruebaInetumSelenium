@@ -12,6 +12,14 @@ Para poder interactuar con el framework es necesario primero entender los flujos
 Para acceder a los metodos del framework, la clase Page debe extender de la clase:
 > BaseWebPage
 
+<h3>Propiedades propias de la ejecución</h3>
+Estas propiedades son necesarias para la ejecución del Test.
+
+```
+web.remote.hub=http://10.79.6.29:4444/wd/hub //host remoto
+web.custom.browser=chrome  //chrome, ie
+web.browser.headless=true  // false, true
+```
 
 <h3>¿Cómo ejecuto el proyecto?</h3>
 > mvn clean verify -Dcucumber.options="--tags @TAG"
