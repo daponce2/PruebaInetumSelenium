@@ -25,7 +25,6 @@ public class TlcnpSteps extends ScenarioSteps {
         loginPage.setDriver(WebDriverManager.setWebDriver(environmentVariables));
         loginPage.open();
         loginPage.getDriver().manage().window().maximize();
-
     }
 
     @Step("Clic en Operaciones Monetarias")

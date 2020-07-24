@@ -12,6 +12,19 @@ Para poder interactuar con el framework es necesario primero entender los flujos
 Para acceder a los metodos del framework, la clase Page debe extender de la clase:
 > BaseWebPage
 
+<h3>Método con el que se incializa el driver</h3>
+
+```
+private EnvironmentVariables environmentVariables;
+
+    @Step("Cargar pagina de TLCNP")
+    public void cargarPaginaTLCNp() throws MalformedURLException {
+        loginPage.setDriver(WebDriverManager.setWebDriver(environmentVariables));
+        loginPage.open();
+        loginPage.getDriver().manage().window().maximize();
+    }
+```
+
 <h3>Propiedades propias de la ejecución</h3>
 Estas propiedades son necesarias para la ejecución del Test.
 
