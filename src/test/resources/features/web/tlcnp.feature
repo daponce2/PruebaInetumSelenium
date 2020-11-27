@@ -8,7 +8,7 @@ Feature: Transferencias entre cuentas
   Scenario Outline: Transferencia a cuentas propias BCP
     When selecciono tipo de tarjeta "<sTipoTarjeta>"
     And Ingreso tarjeta "<sTarjeta>" con "<sClave>"
-    And doy clic a transferencias BCP con cuentas propias
+#    And doy clic a transferencias BCP con cuentas propias
 #    And selecciono el numero de cuenta "<sCuenta>"
 #    And selecciono datos de la cuenta abono "<sCuenta>" con la misma moneda "<sMismaMoneda>" con cuesta destino "<sCuentaDestino>"
 #    And selecciono datos de la cuenta destino "<sCuentaDestino>" con "<sMonto>" con moneda en "<sMoneda>"
