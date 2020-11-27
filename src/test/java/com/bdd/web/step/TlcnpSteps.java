@@ -22,7 +22,7 @@ public class TlcnpSteps extends ScenarioSteps {
 
     @Step("Cargar pagina de TLCNP")
     public void cargarPaginaTLCNp() throws MalformedURLException {
-        loginPage.setDriver(WebDriverManager.setWebDriver(environmentVariables));
+        loginPage.setDriver(WebDriverManager.setWebDriverFromEnvironment(environmentVariables));
         loginPage.open();
         loginPage.getDriver().manage().window().maximize();
     }

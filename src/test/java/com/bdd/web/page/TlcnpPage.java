@@ -5,7 +5,7 @@ import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.FindBy;
-import web.com.bdd.base.BaseWebPage;
+import web.com.bdd.base.Middleware;
 
 import java.io.IOException;
 import java.util.List;
@@ -15,7 +15,7 @@ import static web.com.bdd.util.UtilWeb.createResponseFile;
 import static web.com.bdd.util.UtilWeb.createResponseFileDataGenerate;
 
 @DefaultUrl("http://ptbiewasc02:9082/tlcnp/")
-public class TlcnpPage extends BaseWebPage {
+public class TlcnpPage extends Middleware {
 
 
     @FindBy(xpath = "//a[contains(text(),'Mapa del sitio')]")
