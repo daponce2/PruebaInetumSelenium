@@ -22,7 +22,7 @@ try {
         }
 
         stage('Test') {
-            utilsTesting.executeWebFunctionalTest(params.Environment, params.TAGS)
+            utilsTesting.executeWebFunctionalTest('chrome', params.Environment, params.TAGS)
         }
 
         stage('Post Execution') {

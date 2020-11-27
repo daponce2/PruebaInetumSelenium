@@ -26,7 +26,7 @@
             <url>https://artifactorydesa.lima.bcp.com.pe/artifactory/public</url>
         </repository>
         <repository>
-            <snapshots />
+            <snapshots/>
             <id>snapshots</id>
             <name>public.snapshots</name>
             <url>https://artifactorydesa.lima.bcp.com.pe/artifactory/public.snapshots</url>
@@ -42,7 +42,7 @@
             <url>https://artifactorydesa.lima.bcp.com.pe/artifactory/public</url>
         </pluginRepository>
         <pluginRepository>
-            <snapshots />
+            <snapshots/>
             <id>snapshots</id>
             <name>public.snapshots</name>
             <url>https://artifactorydesa.lima.bcp.com.pe/artifactory/public.snapshots</url>
