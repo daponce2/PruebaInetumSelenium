@@ -24,11 +24,12 @@ try {
         stage('Test') {
             utilsTesting.executeWebFunctionalTest('chrome', params.Environment, params.TAGS)
         }
-
+/*
         stage('Post Execution') {
             utilsTesting.executePostExecutionTasks()
             //utils.notifyByMail('SUCCESS',recipients)
         }
+  */
 
     }
 } catch (Exception e) {
