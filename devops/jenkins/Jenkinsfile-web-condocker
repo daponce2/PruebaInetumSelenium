@@ -1,0 +1,106 @@
+#!/opt/groovy/bin/groovy
+/*****************************************************/
+
+
+pipeline {
+
+    agent any
+
+    parameters {
+        string(defaultValue: '@DEMO01', description: 'Tags para las pruebas. Ejemplo: @GENERAR_TOKEN', name: 'TAGS')
+        //choice(name: 'Ejecucion', choices: ['Local','Remoto'], description:'Remoto es ejecución en el servidor')
+    }
+
+    stages {
+        stage('checkout') {
+            steps {
+                script {
+
+                    checkout([
+                            $class                           : 'GitSCM',
+                            branches                         : [[name: 'feature/web-example-ct']],
+                            doGenerateSubmoduleConfigurations: false,
+                            extensions                       : [[$class             : 'SubmoduleOption',
+                                                                 disableSubmodules  : false,
+                                                                 parentCredentials  : false,
+                                                                 recursiveSubmodules: true,
+                                                                 reference          : '',
+                                                                 trackingSubmodules : false]],
+                            submoduleCfg                     : [],
+                            userRemoteConfigs                : [[credentialsId: 'ct-s96057', url: 'https://bitbucket.lima.bcp.com.pe/scm/testc/web-example-ct.git']]
+
+                    ]
+                    )
+                }
+            }
+        }
+
+
+        stage('Ejecutar Imagenes Docker') {
+            steps {
+
+                script {
+                  //  private String dockerSeleniumWebHub = "dockerdesa.lima.bcp.com.pe/bcp/maven339-selenium-hub3_141:1.7"
+                   // private String dockerSeleniumWebNode = "dockerdesa.lima.bcp.com.pe/bcp/maven339-selenium-nodo-chrome3_141:2.0"
+                   // sh 'docker pull dockerdesa.lima.bcp.com.pe/bcp/maven339-selenium-hub3_141:1.5'
+                    //sh 'docker pull dockerdesa.lima.bcp.com.pe/bcp/maven339-selenium-nodo-chrome3_141:1.4'
+                    sh 'docker pull dockerdesa.lima.bcp.com.pe/bcp/maven339-selenium-hub3_141:1.7'
+                    sh 'docker pull dockerdesa.lima.bcp.com.pe/bcp/maven339-selenium-nodo-chrome3_141:2.0'
+                    sh 'docker run -d --rm -p 4444:4444 --name selenium-hub dockerdesa.lima.bcp.com.pe/bcp/maven339-selenium-hub3_141:1.7'
+                    sh 'docker run -d --rm -P --link selenium-hub:hub --name selenium-nodo-chrome dockerdesa.lima.bcp.com.pe/bcp/maven339-selenium-nodo-chrome3_141:2.0'
+                }
+            }
+        }
+
+
+        stage('Ejecucion de Escenarios') {
+            steps {
+                script {
+             	  try {
+                        sh 'sudo docker cp /opt/jenkins/data/workspace/TESTINGCONTINUOUS/Testing_Web_p/ selenium-hub:.'
+                    }catch (all) {
+                  }
+                    
+                  try {
+                        sh 'sudo docker exec selenium-hub bash -c "cd /Testing_Web_p; sudo mvn install -DskipTests"'
+						sh 'sudo docker exec selenium-hub bash -c "cd /Testing_Web_p; sudo mvn clean verify -Dcucumber.options=`--tags ${TAGS}`"'
+                        sh 'sudo docker exec selenium-hub bash -c "cd /Testing_Web_p; sudo mvn serenity:aggregate"'
+                  } catch (all) {
+                  }
+                
+                    try {
+                        sh 'docker cp selenium-hub:/Testing_Web_p/target /opt/jenkins/data/workspace/TESTINGCONTINUOUS/Testing_Web_p/'
+
+
+					} catch (e) {
+                        currentBuild.result = "UNSTABLE"
+                        echo e.toString()
+
+                    }
+                    try {
+                        publishHTML([allowMissing: true,
+                                     keepAll     : true,
+                                     reportDir   : '/opt/jenkins/data/workspace/TESTINGCONTINUOUS/Testing_Web_p/target/site/serenity/',
+                                     reportFiles : 'index.html',
+                                     reportName  : 'Resultado Web Testing',
+                                     reportTitles: 'Resultado Web Testing'
+                        ])
+                    } catch (e) {
+                        currentBuild.result = "UNSTABLE"
+                        echo e.toString()
+                    }
+                    finally {
+                        println('Deteniendo Contenedores')
+                        sh 'docker ps -a'
+                        sh 'docker stop selenium-nodo-chrome'
+                        sh 'docker stop selenium-hub'
+                        // sh 'docker rmi dockerdesa.lima.bcp.com.pe/bcp/maven339-selenium-nodo-chrome3_141:1.4'
+                        // sh 'docker rmi dockerdesa.lima.bcp.com.pe/bcp/maven339-selenium-hub3_141:1.5'
+                    }
+                }
+            }
+        }
+
+    }
+
+}
