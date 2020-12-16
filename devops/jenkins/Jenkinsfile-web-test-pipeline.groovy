@@ -1,9 +1,13 @@
 @Library('jenkins-sharedlib@feature/continuous-testing')
+//Version feature
 @Library('testing-sharedlib@feature/testing')
 
+
 import sharedlib.testing.MavenFunctionalTest
+import sharedlib.JenkinsfileUtil
 
 def utilsTesting = new MavenFunctionalTest(this)
+def utils = new JenkinsfileUtil(steps,this)
 
 def recipients = ''
 def project = "INCT"
@@ -13,28 +17,27 @@ try {
         stage('Preparation') {
             //utils.notifyByMail('START',recipients)
             checkout scm
-            utilsTesting.prepare()
+            utils.prepare()
             env.project = "${project}"
         }
 
         stage('Build') {
-            utilsTesting.build()
+            utils.buildMaven()
         }
 
         stage('Test') {
-            utilsTesting.executeWebFunctionalTest('chrome', params.Environment, params.TAGS)
+            utilsTesting.executeWebFunctionalTest('',params.Environment, params.TAGS)
         }
-/*
+
         stage('Post Execution') {
-            utilsTesting.executePostExecutionTasks()
+            utils.executePostExecutionTasks()
             //utils.notifyByMail('SUCCESS',recipients)
         }
-  */
 
     }
 } catch (Exception e) {
     node {
-        utilsTesting.executeOnErrorExecutionTasks()
+        utils.executeOnErrorExecutionTasks()
         //utils.notifyByMail('FAIL',recipients)
         throw e
     }

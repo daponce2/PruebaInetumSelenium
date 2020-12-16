@@ -15,6 +15,7 @@ import static web.com.bdd.util.UtilWeb.createResponseFile;
 import static web.com.bdd.util.UtilWeb.createResponseFileDataGenerate;
 
 @DefaultUrl("http://ptbiewasc02:9082/tlcnp/")
+
 public class TlcnpPage extends Middleware {
 
 
