@@ -27,7 +27,7 @@ pipeline {
                                                                  reference          : '',
                                                                  trackingSubmodules : false]],
                             submoduleCfg                     : [],
-                            userRemoteConfigs                : [[credentialsId: 'ct-s96057', url: 'https://bitbucket.lima.bcp.com.pe/scm/testc/web-example-ct.git']]
+                            userRemoteConfigs                : [[credentialsId: 'S96057', url: 'https://bitbucket.lima.bcp.com.pe/scm/testc/web-example-ct.git']]
 
                     ]
                     )
