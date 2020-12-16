@@ -15,6 +15,8 @@ pipeline {
         stage('checkout') {
             steps {
                 sh 'ls'
+                sh 'ifconfig'
+                sh 'hostname'
          }
         }
     }
