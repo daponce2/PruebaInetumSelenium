@@ -18,8 +18,11 @@ pipeline {
                 sh 'nmcli'
                 sh 'hostname -i'
                 sh 'docker ps -a'
-                sh 'docker stop selenium-hub6'
-                sh 'docker rm selenium-hub6'
+                sh 'docker stop selenium-hub5'
+                sh 'docker stop selenium-hub4'
+                sh 'docker stop selenium-hub3'
+                sh 'docker stop selenium-hub2'
+                sh 'docker stop selenium-hub'
                 sh 'docker ps -a'
 
          }
