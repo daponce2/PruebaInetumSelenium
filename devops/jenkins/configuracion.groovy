@@ -17,6 +17,10 @@ pipeline {
                 sh 'ls'
                 sh 'nmcli'
                 sh 'hostname -i'
+                sh 'docker stop selenium-nodo-chrome'
+                sh 'docker rm selenium-nodo-chrome'
+                sh 'docker ps -a'
+
          }
         }
     }
