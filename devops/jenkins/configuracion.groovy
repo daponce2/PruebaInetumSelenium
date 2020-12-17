@@ -17,8 +17,9 @@ pipeline {
                 sh 'ls'
                 sh 'nmcli'
                 sh 'hostname -i'
-                sh 'docker stop selenium-nodo-chrome'
-                sh 'docker rm selenium-nodo-chrome'
+                sh 'docker ps -a'
+                sh 'docker stop selenium-hub6'
+                sh 'docker rm selenium-hub6'
                 sh 'docker ps -a'
 
          }
