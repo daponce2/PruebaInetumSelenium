@@ -1,5 +1,4 @@
 @Library('jenkins-sharedlib@feature/continuous-testing')
-//Version feature
 @Library('testing-sharedlib@feature/testing')
 
 import sharedlib.testing.MavenFunctionalTest

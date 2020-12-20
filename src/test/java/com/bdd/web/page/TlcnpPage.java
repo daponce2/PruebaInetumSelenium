@@ -1,6 +1,5 @@
 package com.bdd.web.page;
 
-
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
 import org.openqa.selenium.By;
@@ -11,7 +10,6 @@ import java.io.IOException;
 import java.util.List;
 
 import static com.bdd.web.util.Util.getIndiceSegunNumeroCuenta;
-import static web.com.bdd.util.UtilWeb.createResponseFile;
 import static web.com.bdd.util.UtilWeb.createResponseFileDataGenerate;
 
 @DefaultUrl("http://ptbiewasc02:9082/tlcnp/")
@@ -306,9 +304,10 @@ public class TlcnpPage extends Middleware {
 
     public void guardarNumeropOP(String num, String cuentadestino, String cuentaabono, String monto, String monedaSigno) throws IOException {
 
-        createResponseFileDataGenerate("transferencias",
+        String[] dataGenerate = {"transferencias",
                 "txt", num, txtNumeroOperacion.getText(),
-                cuentadestino, cuentaabono, monto, monedaSigno);
+                cuentadestino, cuentaabono, monto, monedaSigno};
+        createResponseFileDataGenerate(dataGenerate);
 
     }
 
