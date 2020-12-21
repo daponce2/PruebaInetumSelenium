@@ -11,7 +11,7 @@ def recipients = ''
 def project = "INCT"
 
 try {
-    node('pinctlnxp11-lnx-jenkins-slave') {
+    node('pinctlnxp12-lnx-jenkins-slave') {
         stage('Preparation') {
             //utils.notifyByMail('START',recipients)
             checkout scm
