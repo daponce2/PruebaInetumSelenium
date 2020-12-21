@@ -89,7 +89,7 @@
         <dependency>
             <groupId>com.everis.continuous-testing</groupId>
             <artifactId>web-continuous-testing</artifactId>
-            <version>1.1-SNAPSHOT</version>
+            <version>1.2-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
