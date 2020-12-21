@@ -1,5 +1,6 @@
 package com.bdd.web.page;
 
+import com.bdd.Util;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
 import org.openqa.selenium.By;
@@ -9,13 +10,11 @@ import web.com.bdd.base.Middleware;
 import java.io.IOException;
 import java.util.List;
 
-import static com.bdd.web.util.Util.getIndiceSegunNumeroCuenta;
 import static web.com.bdd.util.UtilWeb.createResponseFileDataGenerate;
 
 @DefaultUrl("http://ptbiewasc02:9082/tlcnp/")
 
 public class TlcnpPage extends Middleware {
-
 
     @FindBy(xpath = "//a[contains(text(),'Mapa del sitio')]")
     private WebElementFacade btnAfiliar;
@@ -112,12 +111,11 @@ public class TlcnpPage extends Middleware {
     }
 
 
-    public String seleccionoDatosCuentaDestinoSegunFlag(String num, Boolean mismaNoneda) {
-        String indiceParaMoneda = "";
+    public String seleccionoDatosCuentaDestinoSegunFlag(String num, boolean mismaNoneda) {
         String numeroCuenta = "";
-        indiceParaMoneda = getIndiceSegunNumeroCuenta(num);
+        String indiceParaMoneda;
         if (!mismaNoneda) {
-            indiceParaMoneda = getIndiceSegunNumeroCuenta(num);
+            indiceParaMoneda = Util.getIndiceSegunNumeroCuenta(num);
             if (indiceParaMoneda.equals("1")) {
                 indiceParaMoneda = "0";
             } else {
@@ -126,13 +124,13 @@ public class TlcnpPage extends Middleware {
                 }
             }
         } else {
-            indiceParaMoneda = getIndiceSegunNumeroCuenta(num);
+            indiceParaMoneda = Util.getIndiceSegunNumeroCuenta(num);
         }
 
         for (WebElementFacade elemento : listOpcionesCuentasDestino) {
             String cuentaElemento = elemento.getText();
             if (!cuentaElemento.contains(num) && !cuentaElemento.equals("Seleccione...")) {
-                if (getIndiceSegunNumeroCuenta(cuentaElemento).equals(indiceParaMoneda)) {
+                if (Util.getIndiceSegunNumeroCuenta(cuentaElemento).equals(indiceParaMoneda)) {
                     numeroCuenta = elemento.getText();
                     break;
                 }
@@ -163,7 +161,7 @@ public class TlcnpPage extends Middleware {
 
         waitForElementAndClick(selectMoneda, 60);
 
-        if (getIndiceSegunNumeroCuenta(cuentaDesttino).equals("0"))
+        if (Util.getIndiceSegunNumeroCuenta(cuentaDesttino).equals("0"))
             moneda = "S/";
         else
             moneda = "US$";
@@ -213,7 +211,8 @@ public class TlcnpPage extends Middleware {
         return moneda;
     }
 
-    public String seleccionoDatosCuentaDestinoTipo(String num, String monto, String moneda, String tipo, String cuentaAbono, Boolean mismaMoneda, String ctaOrigenNULL) {
+    public String seleccionoDatosCuentaDestinoTipo(String num, String monto, String moneda, String tipo, String cuentaAbono,
+                                                   boolean mismaMoneda, String ctaOrigenNULL) {
         waitForElementAndClick(selectCuentaDestinoTipo, 60);
         if (tipo.contains("Cuenta Corriente / Maestra")) {
             opcionCuentaCorrienteMaestra.click();
@@ -228,7 +227,7 @@ public class TlcnpPage extends Middleware {
         waitForElementAndClick(selectMoneda, 60);
         if (cuentaAbono == null || cuentaAbono == "")
             cuentaAbono = ctaOrigenNULL;
-        if (getIndiceSegunNumeroCuenta(cuentaAbono).equals("0")) {
+        if (Util.getIndiceSegunNumeroCuenta(cuentaAbono).equals("0")) {
             moneda = "S/";
         } else {
             moneda = "US$";
@@ -327,20 +326,14 @@ public class TlcnpPage extends Middleware {
 
     public void escribirTarjeta(String sTarjeta, String clave) {
 
-
         secondCard.sendKeys(sTarjeta.substring(0, 2));
         thirdCard.sendKeys(sTarjeta.substring(2, 6));
         fourthCard.sendKeys(sTarjeta.substring(6, 10));
 
-        tecla1.click();
-        tecla1.click();
-        tecla1.click();
-        tecla1.click();
-        tecla1.click();
-        tecla1.click();
-
-        btnEnter.click();
-
+        for (int i = 0; i < clave.length(); i++) {
+            clickElement(tecla1);
+        }
+        clickElement(btnEnter);
 
     }
 

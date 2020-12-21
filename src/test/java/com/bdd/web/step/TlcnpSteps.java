@@ -7,7 +7,6 @@ import net.thucydides.core.util.EnvironmentVariables;
 import web.com.bdd.lib.WebDriverManager;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
 
 
 public class TlcnpSteps extends ScenarioSteps {
@@ -21,7 +20,7 @@ public class TlcnpSteps extends ScenarioSteps {
     private EnvironmentVariables environmentVariables;
 
     @Step("Cargar pagina de TLCNP")
-    public void cargarPaginaTLCNp() throws MalformedURLException {
+    public void cargarPaginaTLCNp() throws Exception {
         loginPage.setDriver(WebDriverManager.setWebDriverFromEnvironment(environmentVariables));
         loginPage.open();
         loginPage.getDriver().manage().window().maximize();

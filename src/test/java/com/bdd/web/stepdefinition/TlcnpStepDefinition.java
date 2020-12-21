@@ -8,7 +8,6 @@ import cucumber.api.java.en.When;
 import net.thucydides.core.annotations.Steps;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
 
 
 public class TlcnpStepDefinition {
@@ -17,7 +16,7 @@ public class TlcnpStepDefinition {
     private TlcnpSteps loginBcpSteps;
 
     @Given("^Cargar la pagina de TLCNp$")
-    public void cargar_la_pagina_de_TLCNp() throws MalformedURLException {
+    public void cargar_la_pagina_de_TLCNp() throws Exception {
         loginBcpSteps.cargarPaginaTLCNp();
     }
     @And("^Ingreso tarjeta \"([^\"]*)\" con \"([^\"]*)\"$")
@@ -81,9 +80,5 @@ public class TlcnpStepDefinition {
         loginBcpSteps.clicbtnContinuar();
 
     }
-
-
-
-
 
 }
