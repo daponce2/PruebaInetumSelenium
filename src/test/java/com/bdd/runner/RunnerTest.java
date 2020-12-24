@@ -12,7 +12,7 @@ import web.com.bdd.lib.WebDriverManager;
         features = {"src/test/resources/features"},
         junit = {"--step-notifications"},
         glue = {"com.bdd.web.stepdefinition"},
-        tags = {"@Google"}
+        tags = {"@DEMO01"}
 )
 public class RunnerTest {
 
