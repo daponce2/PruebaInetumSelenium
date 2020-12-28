@@ -18,8 +18,8 @@ pipeline {
                 sh 'nmcli'
                 sh 'hostname -i'
                 sh 'docker ps -a'
-                sh 'docker stop selenium-hub'
-                sh 'docker rm selenium-hub'
+                sh 'docker stop selenium-nodo-chrome'
+                sh 'docker rm selenium-nodo-chrome'
 
          }
         }
