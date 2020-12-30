@@ -69,7 +69,7 @@ pipeline {
                   }
                 
                     try {
-                        sh 'docker cp selenium-hub:/Testing_Web_p/target /opt/jenkins/data/workspace/TESTINGCONTINUOUS/Testing_Web_p/'
+                        sh 'docker cp selenium-hub:/ct.web-execution/target /opt/jenkins/data/workspace/CONTINUOUS_TESTING/ex.example-ct/ct.web-execution'
 
 
 					} catch (e) {
@@ -80,7 +80,7 @@ pipeline {
                     try {
                         publishHTML([allowMissing: true,
                                      keepAll     : true,
-                                     reportDir   : '/opt/jenkins/data/workspace/TESTINGCONTINUOUS/Testing_Web_p/target/site/serenity/',
+                                     reportDir   : '/opt/jenkins/data/workspace/CONTINUOUS_TESTING/ex.example-ct/ct.web-execution/target/site/serenity/',
                                      reportFiles : 'index.html',
                                      reportName  : 'Resultado Web Testing',
                                      reportTitles: 'Resultado Web Testing'
