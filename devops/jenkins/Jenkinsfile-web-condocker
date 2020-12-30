@@ -57,14 +57,14 @@ pipeline {
             steps {
                 script {
              	  try {
-                        sh 'sudo docker cp /opt/jenkins/data/workspace/TESTINGCONTINUOUS/Testing_Web_p/ selenium-hub:.'
+                        sh 'sudo docker cp /opt/jenkins/data/workspace/CONTINUOUS_TESTING/ex.example-ct/ct.web-execution selenium-hub:.'
                     }catch (all) {
                   }
                     
                   try {
-                        sh 'sudo docker exec selenium-hub bash -c "cd /Testing_Web_p; sudo mvn install -DskipTests"'
-						sh 'sudo docker exec selenium-hub bash -c "cd /Testing_Web_p; sudo mvn clean verify -Dcucumber.options=`--tags ${TAGS}`"'
-                        sh 'sudo docker exec selenium-hub bash -c "cd /Testing_Web_p; sudo mvn serenity:aggregate"'
+                        sh 'sudo docker exec selenium-hub bash -c "cd /ct.web-execution; sudo mvn install -DskipTests"'
+						sh 'sudo docker exec selenium-hub bash -c "cd /ct.web-execution; sudo mvn clean verify -Dcucumber.options=`--tags ${TAGS}`"'
+                        sh 'sudo docker exec selenium-hub bash -c "cd /ct.web-execution; sudo mvn serenity:aggregate"'
                   } catch (all) {
                   }
                 
