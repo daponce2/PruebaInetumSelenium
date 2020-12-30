@@ -18,7 +18,7 @@ pipeline {
 
                     checkout([
                             $class                           : 'GitSCM',
-                            branches                         : [[name: 'feature/web-example-ct']],
+                            branches                         : [[name: 'feature/web-example-ct-develop']],
                             doGenerateSubmoduleConfigurations: false,
                             extensions                       : [[$class             : 'SubmoduleOption',
                                                                  disableSubmodules  : false,
