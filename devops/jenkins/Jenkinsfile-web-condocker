@@ -46,8 +46,8 @@ pipeline {
                     //sh 'docker pull dockerdesa.lima.bcp.com.pe/bcp/maven339-selenium-nodo-chrome3_141:1.4'
                     sh 'docker pull dockerdesa.lima.bcp.com.pe/bcp/maven339-selenium-hub3_141:1.7'
                     sh 'docker pull dockerdesa.lima.bcp.com.pe/bcp/maven339-selenium-nodo-chrome3_141:2.0'
-                    sh 'docker run -d --rm -p 4444:4444 --name selenium-hub dockerdesa.lima.bcp.com.pe/bcp/maven339-selenium-hub3_141:1.5'
-                    sh 'docker run -d --rm -P --link selenium-hub:hub --name selenium-nodo-chrome dockerdesa.lima.bcp.com.pe/bcp/maven339-selenium-nodo-chrome3_141:1.4'
+                    sh 'docker run -d --rm -p 4444:4444 --name selenium-hub dockerdesa.lima.bcp.com.pe/bcp/maven339-selenium-hub3_141:1.7'
+                    sh 'docker run -d --rm -P --link selenium-hub:hub --name selenium-nodo-chrome dockerdesa.lima.bcp.com.pe/bcp/maven339-selenium-nodo-chrome3_141:2.0'
                 }
             }
         }
