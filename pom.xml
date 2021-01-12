@@ -48,6 +48,7 @@
             <url>https://artifactory.lima.bcp.com.pe/artifactory/public.snapshot</url>
         </pluginRepository>
     </pluginRepositories>
+    artifactorydesa.lima.bcp.com.pe
     Configuracion ART-PROD-BCP -->
 
     <!--Configuracion ART-DESA-BCP-->
@@ -58,13 +59,13 @@
             </snapshots>
             <id>central</id>
             <name>public</name>
-            <url>https://artifactorydesa.lima.bcp.com.pe/artifactory/public</url>
+            <url>https://10.79.6.36/artifactory/public</url>
         </repository>
         <repository>
             <snapshots/>
             <id>snapshots</id>
             <name>public.snapshots</name>
-            <url>https://artifactorydesa.lima.bcp.com.pe/artifactory/public.snapshots</url>
+            <url>https://10.79.6.36/artifactory/public.snapshots</url>
         </repository>
     </repositories>
     <pluginRepositories>
@@ -74,13 +75,13 @@
             </snapshots>
             <id>central</id>
             <name>public</name>
-            <url>https://artifactorydesa.lima.bcp.com.pe/artifactory/public</url>
+            <url>https://10.79.6.36/artifactory/public</url>
         </pluginRepository>
         <pluginRepository>
             <snapshots/>
             <id>snapshots</id>
             <name>public.snapshots</name>
-            <url>https://artifactorydesa.lima.bcp.com.pe/artifactory/public.snapshots</url>
+            <url>https://10.79.6.36/artifactory/public.snapshots</url>
         </pluginRepository>
     </pluginRepositories>
     <!--Configuracion ART-DESA-BCP -->
