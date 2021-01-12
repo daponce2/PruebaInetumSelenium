@@ -59,13 +59,13 @@
             </snapshots>
             <id>central</id>
             <name>public</name>
-            <url>https://10.79.6.36/artifactory/public</url>
+            <url>https://artifactorydesa.lima.bcp.com.pe/artifactory/public</url>
         </repository>
         <repository>
             <snapshots/>
             <id>snapshots</id>
             <name>public.snapshots</name>
-            <url>https://10.79.6.36/artifactory/public.snapshots</url>
+            <url>https://artifactorydesa.lima.bcp.com.pe/artifactory/public.snapshots</url>
         </repository>
     </repositories>
     <pluginRepositories>
@@ -75,13 +75,13 @@
             </snapshots>
             <id>central</id>
             <name>public</name>
-            <url>https://10.79.6.36/artifactory/public</url>
+            <url>https://artifactorydesa.lima.bcp.com.pe/artifactory/public</url>
         </pluginRepository>
         <pluginRepository>
             <snapshots/>
             <id>snapshots</id>
             <name>public.snapshots</name>
-            <url>https://10.79.6.36/artifactory/public.snapshots</url>
+            <url>https://artifactorydesa.lima.bcp.com.pe/artifactory/public.snapshots</url>
         </pluginRepository>
     </pluginRepositories>
     <!--Configuracion ART-DESA-BCP -->
