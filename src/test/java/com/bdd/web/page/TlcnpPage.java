@@ -18,7 +18,7 @@ public class TlcnpPage extends Middleware {
 
     @FindBy(xpath = "//a[contains(text(),'Mapa del sitio')]")
     private WebElementFacade btnAfiliar;
-    @FindBy(xpath = "//input[@id='secondCard']")
+    @FindBy(id = "//input[@id='secondCard']")
     private WebElementFacade secondCard;
     @FindBy(xpath = "//input[@id='thirdCard']")
     private WebElementFacade thirdCard;

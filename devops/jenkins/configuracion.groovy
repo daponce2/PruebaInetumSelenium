@@ -18,8 +18,7 @@ pipeline {
                 sh 'nmcli'
                 sh 'hostname -i'
                 sh 'docker ps -a'
-                sh 'docker stop selenium-hub'
-                sh 'docker ps -a'
+                sh 'docker rm selenium-hub'
 
          }
         }

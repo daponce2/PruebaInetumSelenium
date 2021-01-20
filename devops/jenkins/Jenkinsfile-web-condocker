@@ -18,7 +18,7 @@ pipeline {
 
                     checkout([
                             $class                           : 'GitSCM',
-                            branches                         : [[name: 'feature/web-example-ct']],
+                            branches                         : [[name: 'feature/web-example-ct-develop']],
                             doGenerateSubmoduleConfigurations: false,
                             extensions                       : [[$class             : 'SubmoduleOption',
                                                                  disableSubmodules  : false,
@@ -57,19 +57,19 @@ pipeline {
             steps {
                 script {
              	  try {
-                        sh 'sudo docker cp /opt/jenkins/data/workspace/TESTINGCONTINUOUS/Testing_Web_p/ selenium-hub:.'
+                        sh 'sudo docker cp /opt/jenkins/data/workspace/CONTINUOUS_TESTING/ex.example-ct/ct.web-execution selenium-hub:.'
                     }catch (all) {
                   }
                     
                   try {
-                        sh 'sudo docker exec selenium-hub bash -c "cd /Testing_Web_p; sudo mvn install -DskipTests"'
-						sh 'sudo docker exec selenium-hub bash -c "cd /Testing_Web_p; sudo mvn clean verify -Dcucumber.options=`--tags ${TAGS}`"'
-                        sh 'sudo docker exec selenium-hub bash -c "cd /Testing_Web_p; sudo mvn serenity:aggregate"'
+                        sh 'sudo docker exec selenium-hub bash -c "cd /ct.web-execution; sudo mvn install -DskipTests"'
+						sh 'sudo docker exec selenium-hub bash -c "cd /ct.web-execution; sudo mvn clean verify -Dcucumber.options=`--tags ${TAGS}`"'
+                        sh 'sudo docker exec selenium-hub bash -c "cd /ct.web-execution; sudo mvn serenity:aggregate"'
                   } catch (all) {
                   }
                 
                     try {
-                        sh 'docker cp selenium-hub:/Testing_Web_p/target /opt/jenkins/data/workspace/TESTINGCONTINUOUS/Testing_Web_p/'
+                        sh 'docker cp selenium-hub:/ct.web-execution/target /opt/jenkins/data/workspace/CONTINUOUS_TESTING/ex.example-ct/ct.web-execution'
 
 
 					} catch (e) {
@@ -80,7 +80,7 @@ pipeline {
                     try {
                         publishHTML([allowMissing: true,
                                      keepAll     : true,
-                                     reportDir   : '/opt/jenkins/data/workspace/TESTINGCONTINUOUS/Testing_Web_p/target/site/serenity/',
+                                     reportDir   : '/opt/jenkins/data/workspace/CONTINUOUS_TESTING/ex.example-ct/ct.web-execution/target/site/serenity/',
                                      reportFiles : 'index.html',
                                      reportName  : 'Resultado Web Testing',
                                      reportTitles: 'Resultado Web Testing'
