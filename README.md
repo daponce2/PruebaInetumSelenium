@@ -30,8 +30,8 @@ Estas propiedades son necesarias para la ejecución del Test.
 
 ```
 web.remote.hub=http://10.79.6.29:4444/wd/hub //host remoto
-web.custom.browser=chrome  //chrome, ie
-web.browser.headless=true  // false, true
+web.custom.browserName=chrome  //chrome, ie
+web.browserName.headless=true  // false, true
 ```
 
 <h3>¿Cómo ejecuto el proyecto?</h3>
