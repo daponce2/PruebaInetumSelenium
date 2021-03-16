@@ -1,9 +1,15 @@
 package com.bdd;
 
-import com.bdd.Constants;
+import cucumber.api.DataTable;
+import cucumber.api.Scenario;
+import net.serenitybdd.core.Serenity;
 import net.serenitybdd.core.environment.EnvironmentSpecificConfiguration;
 import net.thucydides.core.util.EnvironmentVariables;
+import net.thucydides.core.webdriver.ThucydidesWebDriverSupport;
 import org.apache.commons.lang3.StringUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -56,5 +62,42 @@ public class Util {
         return indice.get(2);
 
     }
+
+    /**
+     * Toma evidencia de la pantalla actual
+     *
+     * @param scenario Clase Scenario de Cucumber
+     * @param driver   driver en ejecucion
+     */
+    public static void takeScreenShotWeb(Scenario scenario, WebDriver driver) {
+        final byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+        scenario.embed(screenshot, "image/png");
+    }
+
+    /**
+     * Guardar una variable en sesion para utilizarla por escenario
+     *
+     * @param key   Nombre e indeficador de la variable a guardar
+     * @param value Valor de la variale
+     */
+    public static void saveVariableOnSession(String key, Object value) {
+        Serenity.setSessionVariable(key).to(value);
+    }
+
+    /**
+     * Obtiene el valor de la variale guardada con el metodo saveVariableOnSession
+     *
+     * @param key Nombre e indeficador de la variable que se desea obtener
+     * @return Valor de la variable buscada
+     */
+    public static <T> T getVariableOnSession(String key) {
+        return Serenity.sessionVariableCalled(key);
+    }
+
+    public static void screenshot(WebDriver webDriver){
+        System.out.println("SCREENSHOT");
+        takeScreenShotWeb((Scenario) getVariableOnSession(Constants.SCENARIO), webDriver);
+    }
+
 
 }

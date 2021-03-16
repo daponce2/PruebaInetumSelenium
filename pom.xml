@@ -89,7 +89,7 @@
         <dependency>
             <groupId>com.everis.continuous-testing</groupId>
             <artifactId>web-continuous-testing</artifactId>
-            <version>1.3-SNAPSHOT</version>
+            <version>1.4.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
@@ -143,7 +143,7 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
+            <!--<plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.2</version>
@@ -170,6 +170,32 @@
                         <goals>
                             <goal>aggregate</goal>
                         </goals>
+                    </execution>
+                </executions>
+            </plugin>-->
+            <plugin>
+                <groupId>net.masterthought</groupId>
+                <artifactId>maven-cucumber-reporting</artifactId>
+                <version>3.11.0</version>
+                <executions>
+                    <execution>
+                        <id>cucumber-reports</id>
+                        <phase>post-integration-test</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <projectName>CucumberReport</projectName>
+                            <outputDirectory>${project.build.directory}/site</outputDirectory>
+                            <cucumberOutput>${project.build.directory}/build/cucumber.json</cucumberOutput>
+
+                            <!-- <jsonFiles>
+                                 <param>**/*.json</param>
+                             </jsonFiles>-->
+                            <!-- <parallelTesting>false</parallelTesting>-->
+                            <!-- <buildNumber>1</buildNumber>
+                             <checkBuildResult>false</checkBuildResult>-->
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>

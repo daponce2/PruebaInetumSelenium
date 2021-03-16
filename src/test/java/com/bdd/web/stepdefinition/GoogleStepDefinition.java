@@ -1,25 +1,27 @@
 package com.bdd.web.stepdefinition;
 
 import com.bdd.Constants;
+import com.bdd.Util;
 import com.bdd.web.step.GoogleStep;
 import cucumber.api.Scenario;
 import cucumber.api.java.Before;
 import cucumber.api.java.es.Cuando;
 import cucumber.api.java.es.Dado;
 import cucumber.api.java.es.Entonces;
-import net.serenitybdd.core.Serenity;
 import net.thucydides.core.annotations.Steps;
-import org.hamcrest.CoreMatchers;
+import org.hamcrest.Matchers;
 import org.junit.Assert;
 
 public class GoogleStepDefinition {
 
     @Steps
     private GoogleStep googleStep;
+    private Scenario scenario;
 
     @Before
     public void before(Scenario scenario){
-        Serenity.setSessionVariable(Constants.SCENARIO).to(scenario);
+        this.scenario = scenario;
+        Util.saveVariableOnSession(Constants.SCENARIO, this.scenario);
     }
 
     @Dado("que abro la pagina de Google$")
@@ -34,7 +36,7 @@ public class GoogleStepDefinition {
 
     @Entonces("valido que el resultado de la busqueda sea \"([^\"]*)\"$")
     public void obtener_resultado(String resultado) {
-        Assert.assertTrue(googleStep.obtenerResultadosBusqueda().contains(resultado));
+        Assert.assertThat(googleStep.obtenerResultadosBusqueda(), Matchers.containsString(resultado));
     }
 
 }
