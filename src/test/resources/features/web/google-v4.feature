@@ -1,10 +1,10 @@
 #language: es
-#@INCTCT-12
-  @REGRESION_GOOGLE
-Característica: REGRESION TEST GOOGLE V2
+@INCTCT-12
+Característica: regresion v4
 
   @INCTCT-11 @INCTCT-13
   Escenario: Busqueda Google
     Dado que abro la pagina de Google
     Cuando realizo una busqueda "cantantes de rock"
-    Entonces valido que el resultado de la busqueda sea "19,700,000"
+    Entonces valido que el resultado de la busqueda sea "19,900,000"
+
