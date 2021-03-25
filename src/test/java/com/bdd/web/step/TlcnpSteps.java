@@ -1,6 +1,5 @@
 package com.bdd.web.step;
 
-import com.bdd.runner.RunnerTest;
 import com.bdd.web.page.TlcnpPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;

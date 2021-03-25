@@ -1,11 +1,9 @@
 package com.bdd;
 
-import cucumber.api.DataTable;
 import cucumber.api.Scenario;
 import net.serenitybdd.core.Serenity;
 import net.serenitybdd.core.environment.EnvironmentSpecificConfiguration;
 import net.thucydides.core.util.EnvironmentVariables;
-import net.thucydides.core.webdriver.ThucydidesWebDriverSupport;
 import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -95,7 +93,6 @@ public class Util {
     }
 
     public static void screenshot(WebDriver webDriver){
-        System.out.println("SCREENSHOT");
         takeScreenShotWeb((Scenario) getVariableOnSession(Constants.SCENARIO), webDriver);
     }
 

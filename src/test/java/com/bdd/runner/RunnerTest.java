@@ -12,7 +12,6 @@ import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import web.com.bdd.jxray.dom.JXrayServiceDom;
 import web.com.bdd.jxray.help.HelperCredentials;
-import web.com.bdd.lib.WebDriverManager;
 import web.com.bdd.util.UtilWeb;
 
 import java.util.logging.Level;
@@ -22,7 +21,7 @@ import java.util.logging.Level;
         features = {"src/test/resources/features"},
         junit = {"--step-notifications"},
         glue = {"com.bdd.web.stepdefinition"},
-        tags = {"@INCTCT-12"}
+        tags = {"@Google"}
 )
 
 public class RunnerTest {
