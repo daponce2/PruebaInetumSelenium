@@ -13,7 +13,6 @@ import java.util.List;
 import static web.com.bdd.util.UtilWeb.createResponseFileDataGenerate;
 
 @DefaultUrl("http://ptbiewasc02:9082/tlcnp/")
-
 public class TlcnpPage extends Middleware {
 
     @FindBy(xpath = "//a[contains(text(),'Mapa del sitio')]")

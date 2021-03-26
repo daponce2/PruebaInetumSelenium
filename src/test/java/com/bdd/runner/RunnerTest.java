@@ -2,7 +2,7 @@ package com.bdd.runner;
 
 import com.bdd.Constants;
 import com.bdd.Util;
-import cucumber.api.CucumberOptions;
+import io.cucumber.junit.CucumberOptions;
 import io.restassured.response.Response;
 import net.serenitybdd.cucumber.CucumberWithSerenity;
 import net.thucydides.core.util.EnvironmentVariables;
@@ -19,9 +19,9 @@ import java.util.logging.Level;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(plugin = {"json:target/build/cucumber.json"},
         features = {"src/test/resources/features"},
-        junit = {"--step-notifications"},
+        stepNotifications = true,
         glue = {"com.bdd.web.stepdefinition"},
-        tags = {"@Google"}
+        tags = "@Google"
 )
 
 public class RunnerTest {

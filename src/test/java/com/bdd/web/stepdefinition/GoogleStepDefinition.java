@@ -1,16 +1,16 @@
 package com.bdd.web.stepdefinition;
 
 import com.bdd.Constants;
-import com.bdd.Util;
 import com.bdd.web.step.GoogleStep;
-import cucumber.api.Scenario;
-import cucumber.api.java.Before;
-import cucumber.api.java.es.Cuando;
-import cucumber.api.java.es.Dado;
-import cucumber.api.java.es.Entonces;
+import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
+import io.cucumber.java.es.Cuando;
+import io.cucumber.java.es.Dado;
+import io.cucumber.java.es.Entonces;
 import net.thucydides.core.annotations.Steps;
 import org.hamcrest.Matchers;
 import org.junit.Assert;
+import web.com.bdd.util.UtilWeb;
 
 public class GoogleStepDefinition {
 
@@ -19,13 +19,13 @@ public class GoogleStepDefinition {
     private Scenario scenario;
 
     @Before
-    public void before(Scenario scenario){
+    public void before(Scenario scenario) {
         this.scenario = scenario;
-        Util.saveVariableOnSession(Constants.SCENARIO, this.scenario);
+        UtilWeb.saveVariableOnSession(Constants.SCENARIO, this.scenario);
     }
 
     @Dado("que abro la pagina de Google$")
-    public void que_abro_la_pagina_de_Google() throws Exception{
+    public void que_abro_la_pagina_de_Google() throws Exception {
         googleStep.abrirPaginaGoogle();
     }
 
