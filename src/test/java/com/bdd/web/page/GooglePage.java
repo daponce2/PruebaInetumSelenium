@@ -15,10 +15,10 @@ import java.util.logging.Level;
 @DefaultUrl("https://www.google.com/")
 public class GooglePage extends Middleware {
 
-    @FindBy(xpath = "//input[@title='Buscar']")
+    @FindBy(xpath = "//form[@action='/search']//input[@type='text'][1]")
     private WebElementFacade editTextBuscar;
 
-    @FindBy(xpath = "//input[@value='Buscar con Google']")
+    @FindBy(xpath = "//form[@action='/search']//input[@name='btnK'][1]")
     private WebElementFacade buscarBoton;
 
     @FindBy(id = "result-stats")

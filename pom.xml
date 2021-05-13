@@ -54,7 +54,7 @@
         <dependency>
             <groupId>com.everis.continuous-testing</groupId>
             <artifactId>web-continuous-testing</artifactId>
-            <version>1.4-SNAPSHOT</version>
+            <version>1.4.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
