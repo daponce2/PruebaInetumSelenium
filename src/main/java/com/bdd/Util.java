@@ -1,8 +1,8 @@
 package com.bdd;
 
+import environment.EnvironmentSpecificConfiguration;
+import environment.EnvironmentVariables;
 import io.cucumber.java.Scenario;
-import net.serenitybdd.core.environment.EnvironmentSpecificConfiguration;
-import net.thucydides.core.util.EnvironmentVariables;
 import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.WebDriver;
 import web.com.bdd.util.UtilWeb;

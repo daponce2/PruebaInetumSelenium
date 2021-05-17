@@ -2,6 +2,7 @@ package com.bdd.web.stepdefinition;
 
 import com.bdd.Constants;
 import com.bdd.web.step.GoogleStep;
+import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import io.cucumber.java.es.Cuando;
@@ -10,6 +11,7 @@ import io.cucumber.java.es.Entonces;
 import net.thucydides.core.annotations.Steps;
 import org.hamcrest.Matchers;
 import org.junit.Assert;
+import web.com.bdd.lib.WebDriverManager;
 import web.com.bdd.util.UtilWeb;
 
 public class GoogleStepDefinition {
@@ -19,9 +21,18 @@ public class GoogleStepDefinition {
     private Scenario scenario;
 
     @Before
-    public void before(Scenario scenario) {
+    public void beforeGoogleStepDefinition(Scenario scenario) {
         this.scenario = scenario;
         UtilWeb.saveVariableOnSession(Constants.SCENARIO, this.scenario);
+    }
+
+    @After
+    public void afterGoogleStepDefinition() {
+        Scenario scenario = UtilWeb.getVariableOnSession(Constants.SCENARIO);
+        if (scenario.isFailed()) UtilWeb.takeScreenShotWeb(scenario, WebDriverManager.getWebDriver());
+
+        if (WebDriverManager.getWebDriver() != null)
+            WebDriverManager.stopWebDriver();
     }
 
     @Dado("que abro la pagina de Google$")

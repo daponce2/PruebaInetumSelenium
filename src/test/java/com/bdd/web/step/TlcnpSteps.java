@@ -24,12 +24,12 @@ public class TlcnpSteps extends ScenarioSteps {
 
     @Step("Cargar pagina de TLCNP")
     public void cargarPaginaTLCNp() throws Exception {
-        HelperProperties helperProperties=new HelperProperties(environmentVariables);
+        /*HelperProperties helperProperties=new HelperProperties(environmentVariables);
 
         UtilWeb.logger(this.getClass()).log(Level.INFO,"IP: {0}" ,helperProperties.getWebRemoteHub());
         loginPage.setDriver(WebDriverManager.setWebDriverFromEnvironment(environmentVariables));
         loginPage.open();
-        loginPage.getDriver().manage().window().maximize();
+        loginPage.getDriver().manage().window().maximize();*/
     }
 
     @Step("Clic en Operaciones Monetarias")

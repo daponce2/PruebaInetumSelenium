@@ -2,11 +2,11 @@ package com.bdd.runner;
 
 import com.bdd.Constants;
 import com.bdd.Util;
+import environment.ManageEnvironment;
+import environment.SystemEnvironmentVariables;
 import io.cucumber.junit.CucumberOptions;
 import io.restassured.response.Response;
 import net.serenitybdd.cucumber.CucumberWithSerenity;
-import net.thucydides.core.util.EnvironmentVariables;
-import net.thucydides.core.util.SystemEnvironmentVariables;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
@@ -26,28 +26,27 @@ import java.util.logging.Level;
 
 public class RunnerTest {
 
-    private static EnvironmentVariables environmentVariables;
-
     @BeforeClass
     public static void beforeExecution() {
-        environmentVariables = SystemEnvironmentVariables.createEnvironmentVariables();
+        UtilWeb.logger(RunnerTest.class).info("BEFORE >>>");
+        ManageEnvironment.setEnvironmentVariables(SystemEnvironmentVariables.createEnvironmentVariables());
     }
 
     @AfterClass
     public static void afterExecution() {
-        //Ubicacion del archivo de resultado cucumber.json
+        UtilWeb.logger(RunnerTest.class).info("AFTER >>>");
+
         String cucumberPath = System.getProperty("user.dir") + "/target/build/cucumber.json";
-        UtilWeb.logger(RunnerTest.class).info("afterExecution()");
-        boolean isJiraOn = Boolean.parseBoolean(Util.getContentEvironmentVariable(environmentVariables, Constants.JXRAY_EVIDENCE));
+        boolean isJiraOn = Boolean.parseBoolean(Util.getContentEvironmentVariable(ManageEnvironment.getEnvironmentVariables(), Constants.JXRAY_EVIDENCE));
 
         if (isJiraOn) {
             UtilWeb.logger(RunnerTest.class).log(Level.INFO, "Actualizar resultados en JiraXray: {0}", isJiraOn);
             JXrayServiceDom jXrayServiceDom = new JXrayServiceDom();
             Response response = jXrayServiceDom.importTestResultExecution(
-                    new HelperCredentials(environmentVariables).getPathResource(),
+                    new HelperCredentials(ManageEnvironment.getEnvironmentVariables()).getPathResource(),
                     cucumberPath,
-                    new HelperCredentials(environmentVariables).getJXrayUser(),
-                    new HelperCredentials(environmentVariables).getJXrayPassword());
+                    new HelperCredentials(ManageEnvironment.getEnvironmentVariables()).getJXrayUser(),
+                    new HelperCredentials(ManageEnvironment.getEnvironmentVariables()).getJXrayPassword());
 
             response.then().assertThat().statusCode(200);
 

@@ -1,9 +1,8 @@
 package com.bdd.web.page;
 
-
 import com.bdd.Util;
-import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -16,13 +15,13 @@ import java.util.logging.Level;
 public class GooglePage extends Middleware {
 
     @FindBy(xpath = "//input[@title='Buscar']")
-    private WebElementFacade editTextBuscar;
+    private WebElement editTextBuscar;
 
     @FindBy(xpath = "//input[@value='Buscar con Google']")
-    private WebElementFacade buscarBoton;
+    private WebElement buscarBoton;
 
     @FindBy(id = "result-stats")
-    private WebElementFacade resultadosLabel;
+    private WebElement resultadosLabel;
 
     public void escribirBusqueda(String dato) {
         UtilWeb.logger(this.getClass()).log(Level.INFO, "escribirBusqueda");
