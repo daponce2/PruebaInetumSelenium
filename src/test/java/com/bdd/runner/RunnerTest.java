@@ -1,6 +1,5 @@
 package com.bdd.runner;
 
-import com.bdd.Constants;
 import environment.SystemEnvironmentVariables;
 import io.cucumber.junit.CucumberOptions;
 import io.restassured.response.Response;
@@ -8,13 +7,15 @@ import net.serenitybdd.cucumber.CucumberWithSerenity;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
+import web.com.bdd.jxray.dom.JXrayProperties;
 import web.com.bdd.jxray.dom.JXrayServiceDom;
 import web.com.bdd.jxray.help.JXrayHelperCredentials;
 import web.com.bdd.util.UtilWeb;
 
 import java.util.logging.Level;
 
-import static environment.ManageEnvironment.*;
+import static environment.ManageEnvironment.getEnvironment;
+import static environment.ManageEnvironment.setEnvironment;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(plugin = {"json:target/build/cucumber.json"},
@@ -37,7 +38,7 @@ public class RunnerTest {
         UtilWeb.logger(RunnerTest.class).info("AFTER >>>");
 
         String cucumberJsonPath = System.getProperty("user.dir") + "/target/build/cucumber.json";
-        boolean isJiraOn = UtilWeb.getBooleanEvironmentProperty(getEnvironment(), Constants.JXRAY_EVIDENCE);
+        boolean isJiraOn = UtilWeb.getBooleanEvironmentProperty(getEnvironment(), JXrayProperties.JXRAY_EVIDENCE);
 
         if (isJiraOn) {
             UtilWeb.logger(RunnerTest.class).log(Level.INFO, "Actualizar resultados en JiraXray: {0}", isJiraOn);

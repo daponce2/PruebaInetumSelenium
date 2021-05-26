@@ -1,7 +1,5 @@
 package com.bdd;
 
-import environment.EnvironmentSpecificConfiguration;
-import environment.EnvironmentVariables;
 import io.cucumber.java.Scenario;
 import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.WebDriver;

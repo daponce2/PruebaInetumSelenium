@@ -5,7 +5,6 @@ import net.thucydides.core.annotations.DefaultUrl;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import web.com.bdd.base.Middleware;
-import web.com.bdd.util.UtilWeb;
 
 import static web.com.bdd.util.UtilWeb.getVariableOnSession;
 

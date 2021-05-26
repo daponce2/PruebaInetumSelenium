@@ -9,7 +9,6 @@ import io.cucumber.java.es.Dado;
 import io.cucumber.java.es.Y;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.util.EnvironmentVariables;
-import web.com.bdd.util.UtilWeb;
 
 import java.net.MalformedURLException;
 import java.util.List;
