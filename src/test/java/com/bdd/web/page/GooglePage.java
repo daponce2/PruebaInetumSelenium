@@ -11,7 +11,6 @@ import web.com.bdd.util.UtilWeb;
 
 import java.util.logging.Level;
 
-@DefaultUrl("https://www.google.com/")
 public class GooglePage extends Middleware {
 
     @FindBy(xpath = "//input[@title='Buscar']")

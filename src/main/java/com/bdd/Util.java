@@ -19,18 +19,6 @@ public class Util {
     }
 
     /**
-     * Obtener una propiedad o variables de ambinete
-     *
-     * @param environmentVariables Variables de ambiente del fichero serenity.properties
-     * @param propiedad            Nombre de la propiedad del fichero serenity.properties
-     * @return el valor de la propiedad
-     */
-    public static String getContentEvironmentVariable(EnvironmentVariables environmentVariables, String propiedad) {
-        return EnvironmentSpecificConfiguration.from(environmentVariables).getProperty(propiedad);
-    }
-
-
-    /**
      * Obtener la fecha actual a partir de un formato especifico
      *
      * @return la fecha formateada

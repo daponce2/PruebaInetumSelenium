@@ -13,18 +13,11 @@ public class GoogleStep {
     private GooglePage googlePage() {
         return new GooglePage();
     }
-    //private EnvironmentVariables environmentVariables = SystemEnvironmentVariables.createEnvironmentVariables();
 
     @Step("Abrir pagina de google")
     public void abrirPaginaGoogle() throws Exception {
-       /* googlePage.setDriver(WebDriverManager.setWebDriverFromEnvironment(environmentVariables));
-        googlePage.open();
-        googlePage.getDriver().manage().window().maximize();
-        Util.screenshot(googlePage.getDriver());
-        googlePage.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);*/
-
-        WebDriverManager.setWebDriver(ManageEnvironment.getEnvironmentVariables());
-        String url = UtilWeb.getEnvironmentValuePropertie(ManageEnvironment.getEnvironmentVariables(), "urlBASE");
+        WebDriverManager.setWebDriver(ManageEnvironment.getEnvironment());
+        String url = UtilWeb.getStringEvironmentProperty(ManageEnvironment.getEnvironment(), "url.demo");
         WebDriverManager.setUrl(url);
         WebDriverManager.getWebDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 

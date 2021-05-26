@@ -4,12 +4,8 @@ import com.bdd.web.page.TlcnpPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import net.thucydides.core.util.EnvironmentVariables;
-import web.com.bdd.generic.HelperProperties;
-import web.com.bdd.lib.WebDriverManager;
-import web.com.bdd.util.UtilWeb;
 
 import java.io.IOException;
-import java.util.logging.Level;
 
 
 public class TlcnpSteps extends ScenarioSteps {
