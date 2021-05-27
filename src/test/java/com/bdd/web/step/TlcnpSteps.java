@@ -4,12 +4,8 @@ import com.bdd.web.page.TlcnpPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import net.thucydides.core.util.EnvironmentVariables;
-import web.com.bdd.generic.HelperProperties;
-import web.com.bdd.lib.WebDriverManager;
-import web.com.bdd.util.UtilWeb;
 
 import java.io.IOException;
-import java.util.logging.Level;
 
 
 public class TlcnpSteps extends ScenarioSteps {
@@ -24,12 +20,12 @@ public class TlcnpSteps extends ScenarioSteps {
 
     @Step("Cargar pagina de TLCNP")
     public void cargarPaginaTLCNp() throws Exception {
-        HelperProperties helperProperties=new HelperProperties(environmentVariables);
+        /*HelperProperties helperProperties=new HelperProperties(environmentVariables);
 
         UtilWeb.logger(this.getClass()).log(Level.INFO,"IP: {0}" ,helperProperties.getWebRemoteHub());
         loginPage.setDriver(WebDriverManager.setWebDriverFromEnvironment(environmentVariables));
         loginPage.open();
-        loginPage.getDriver().manage().window().maximize();
+        loginPage.getDriver().manage().window().maximize();*/
     }
 
     @Step("Clic en Operaciones Monetarias")
