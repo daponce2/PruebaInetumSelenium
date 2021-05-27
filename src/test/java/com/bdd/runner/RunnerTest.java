@@ -10,6 +10,7 @@ import org.junit.runner.RunWith;
 import web.com.bdd.jxray.dom.JXrayProperties;
 import web.com.bdd.jxray.dom.JXrayServiceDom;
 import web.com.bdd.jxray.help.JXrayHelperCredentials;
+import web.com.bdd.lib.WebDriverManager;
 import web.com.bdd.util.UtilWeb;
 
 import java.util.logging.Level;
@@ -36,6 +37,9 @@ public class RunnerTest {
     @AfterClass
     public static void afterExecution() {
         UtilWeb.logger(RunnerTest.class).info("AFTER >>>");
+
+        if (WebDriverManager.getWebDriver() != null)
+            WebDriverManager.stopWebDriver();
 
         String cucumberJsonPath = System.getProperty("user.dir") + "/target/build/cucumber.json";
         boolean isJiraOn = UtilWeb.getBooleanEvironmentProperty(getEnvironment(), JXrayProperties.JXRAY_EVIDENCE);
