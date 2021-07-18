@@ -51,6 +51,7 @@
     <!-- Configuracion ART-PROD-BCP-->
 
     <dependencies>
+
         <!-- https://mvnrepository.com/artifact/net.serenity-bdd/serenity-cucumber6 -->
         <dependency>
             <groupId>net.serenity-bdd</groupId>
@@ -58,6 +59,7 @@
             <version>2.4.24</version>
         </dependency>
 
+        <!-- DEPENDENCIA FM CONTINUOUS-TESTING -->
         <dependency>
             <groupId>com.everis.continuous-testing</groupId>
             <artifactId>web-continuous-testing</artifactId>
