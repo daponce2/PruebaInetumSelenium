@@ -6,7 +6,7 @@ import web.com.bdd.base.Middleware;
 public class GoogleConfigPage extends Middleware {
 
     public void buscar(String dato) {
-        WebElement element = getWebElementInShadowRoot(GoogleConfigPaths.searchField, getDriver());
+        WebElement element = getElementInShadowRoot(GoogleConfigPaths.searchField, getDriver());
         sendKeysElement(element, dato);
     }
 
@@ -21,7 +21,7 @@ public class GoogleConfigPage extends Middleware {
 
     public String obtenerCantidadOpciones() {
         //return getWebElementsInShadowRootByPosition(GoogleConfigPaths.opciones, 0, getDriver()).getAttribute("innerText");
-        return getTextFromElementsInShadowRootByPosition(GoogleConfigPaths.opciones, 2, getDriver());
+        return getTextFromElementInShadowRootByPosition(GoogleConfigPaths.opciones, 2, getDriver());
     }
 }
 

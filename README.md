@@ -1,12 +1,11 @@
 <h1>Continuous Testing - Web</h1>
 
-Este script permitira simular la acción humana a travéz de 
-lineas de comandos enviados por metodos públicos dentro del 
+Este script permitira simular la acción humana a travéz de lineas de comandos enviados por metodos públicos dentro del
 framework para interactuar con los componentes web de un aplicativo.
 
 <h3>Pre-requisito para el desarrollo</h3>
 Para poder interactuar con el framework es necesario primero entender los flujos o escenarios que se van a automatizar
-(Pantallas, procesos, arquitectura, etc). 
+(Pantallas, procesos, arquitectura, etc).
 
 <h3>¿Cómo accedo a los metodos del framework?</h3>
 Para acceder a los metodos del framework, la clase Page debe extender de la clase:
@@ -35,15 +34,15 @@ web.browserName.headless=true  // false, true
 ```
 
 <h3>¿Cómo ejecuto el proyecto?</h3>
-> mvn clean verify -Dcucumber.options="--tags @TAG"
+> clean verify -Dcucumber.filter.tags=@Google -Denvironment=desarrollo
 
 
 El reporte total generado por serenity se encontrará en la siguiente ruta:
 > /target/site/serenity
 
 <h2>Dependencias</h2>
-El framework tiene como unica dependencia el JAR <b>web-continuous-testing</b> el cual será descargado
-desde el artifactory de BCP, para esto la configuración de esta descarga se encuentra en el pom.xml
+El framework tiene como unica dependencia el JAR <b>web-continuous-testing</b> el cual será descargado desde el
+artifactory de BCP, para esto la configuración de esta descarga se encuentra en el pom.xml
 
 <h5>ARTIFACTORY DESARROLLO</h5>
 Agregar el siguiente bloque en el pom.xml para descargar desde el artifactory de Desarrollo
@@ -122,14 +121,13 @@ Agregar el siguiente bloque en el pom.xml para descargar desde el artifactory de
 ```
 
 Ejecutar los comandos:
-    
+
     * $mvn intall -DskipTests
     * Volver a reimportar las dependencias   
 
 ## Integración con JXRAY
 
-Agregar el siguiente código para actualizar el estado de los Test en 
-el TestExecution de Jxray
+Agregar el siguiente código para actualizar el estado de los Test en el TestExecution de Jxray
 
 Configuracion serenity.properties (true|false)
 
@@ -137,36 +135,43 @@ Configuracion serenity.properties (true|false)
     jxray.update.evidence=false
 ``` 
 
-Declarar variable EnvironmentVariables en la clase StepDefinition
+En la clase RunnerTest, AfterClass llamar al metodo importTestResultExecution de la clase
+JXrayServiceDom ubicada en el jar dependencia
 
-``` 
-public class StepDefinition {
-
-    ...
-    protected static EnvironmentVariables environmentVariables;
-    ...
-
-``` 
-  
-En la clase RunnerTest exteneder de la clase StepDefinition, y llamar al metodo importTestResultExecution
-de la clase JXrayServiceDom ubicada en el jar dependencia
-
-```  
-    public class RunnerTest extends StepDefinition {
+```  java
+    public class RunnerTest{
     
-        @AfterClass
-        public static void after(){
-             if(Boolean.valueOf(EnvironmentSpecificConfiguration.from(environmentVariables).getProperty("jxray.update.evidence"))){
-                        System.out.println("Actualizar resultados en JiraXray: ACTIVADO");
-                        JXrayServiceDom jXrayServiceDom = new JXrayServiceDom();
-                        jXrayServiceDom.importTestResultExecution(
-                                new HelperCredentials(environmentVariables).getPathResource(),
-                                System.getProperty("user.dir")+"/target/build/cucumber.json",
-                                new HelperCredentials(environmentVariables).getJXrayUser(),
-                                new HelperCredentials(environmentVariables).getJXrayPassword());
-                    }else{
-                        System.out.println("Actualizar resultados en JiraXray: DESACTIVADO");
-                    }
+    @BeforeClass
+    public static void beforeExecution() {
+        UtilWeb.logger(RunnerTest.class).info("BEFORE >>>");
+        setEnvironment(SystemEnvironmentVariables.createEnvironmentVariables());
+    }
+    
+    @AfterClass
+    public static void afterExecution() {
+        UtilWeb.logger(RunnerTest.class).info("AFTER >>>");
+
+        if (WebDriverManager.getWebDriver() != null)
+            WebDriverManager.stopWebDriver();
+
+        String cucumberJsonPath = System.getProperty("user.dir") + "/target/build/cucumber.json";
+        boolean isJiraOn = UtilWeb.getBooleanEvironmentProperty(getEnvironment(), JXrayProperties.JXRAY_EVIDENCE);
+
+        if (isJiraOn) {
+            UtilWeb.logger(RunnerTest.class).log(Level.INFO, "Actualizar resultados en JiraXray: {0}", isJiraOn);
+            JXrayServiceDom jXrayServiceDom = new JXrayServiceDom();
+            Response response = jXrayServiceDom.importTestResultExecution(
+                    new JXrayHelperCredentials(getEnvironment()).getJiraHost(),
+                    cucumberJsonPath,
+                    new JXrayHelperCredentials(getEnvironment()).getJXrayUser(),
+                    new JXrayHelperCredentials(getEnvironment()).getJXrayPassword());
+            response.then().assertThat().statusCode(200);
+
+        } else {
+            UtilWeb.logger(RunnerTest.class).log(Level.INFO, "Actualizar resultados en JiraXray: {0}", isJiraOn);
+        }
+
+    }
     }
 ```
 
