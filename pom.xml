@@ -61,9 +61,9 @@
 
         <!-- DEPENDENCIA FM CONTINUOUS-TESTING -->
         <dependency>
-            <groupId>com.everis.continuous-testing</groupId>
+            <groupId>com.bcp.continuous-testing</groupId>
             <artifactId>web-continuous-testing</artifactId>
-            <version>1.5-SNAPSHOT</version>
+            <version>1.6-SNAPSHOT</version>
         </dependency>
 
     </dependencies>

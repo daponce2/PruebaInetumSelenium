@@ -1,6 +1,7 @@
 package com.bdd.web.stepdefinition;
 
 import com.bdd.Constants;
+import com.bdd.web.step.GoogleConfigStep;
 import com.bdd.web.step.GoogleStep;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -17,6 +18,9 @@ public class GoogleStepDefinition {
 
     @Steps
     private GoogleStep googleStep;
+    @Steps
+    private GoogleConfigStep googleConfigStep;
+
     private Scenario scenario;
 
     @Before
@@ -44,9 +48,32 @@ public class GoogleStepDefinition {
         googleStep.realizarBusqueda(dato);
     }
 
-    @Entonces("valido que el resultado de la busqueda sea \"([^\"]*)\"$")
+    @Entonces("valido que el resultado de la busqueda sea: \"([^\"]*)\"$")
     public void obtener_resultado(String resultado) {
         Assert.assertTrue(googleStep.obtenerResultadosBusqueda().length() > 0);
     }
+
+
+    //CONFIGURACION GOOGLE - DEMO SHADOWROOT
+    @Dado("que abro la pagina de configuracion de Google$")
+    public void que_abro_la_pagina_de_confg_Google() throws Exception {
+        googleConfigStep.abrirPaginaConfigGoogle();
+    }
+
+    @Cuando("busco la configuracion \"([^\"]*)\"$")
+    public void busco_configuracion(String dato) {
+        googleConfigStep.realizarBusqueda(dato);
+    }
+
+    @Entonces("valido que el resultado sea: \"([^\"]*)\"$")
+    public void valido_resultado(String resultado) {
+        Assert.assertEquals(resultado ,googleConfigStep.obtenerResultado());
+    }
+
+    @Entonces("obtengo la lista de opcion del menu principal: \"([^\"]*)\"$")
+    public void obtengoOpciones(String opcion) {
+        Assert.assertEquals(opcion ,googleConfigStep.obtenerCantidadOpciones());
+    }
+
 
 }

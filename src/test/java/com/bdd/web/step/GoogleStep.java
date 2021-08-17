@@ -33,4 +33,9 @@ public class GoogleStep {
     public String obtenerResultadosBusqueda() {
         return googlePage().obtenerResultadosBusqueda();
     }
+
+    @Step
+    public void abrirPaginaConfigGoogle() {
+
+    }
 }
