@@ -1,7 +1,38 @@
-/target
-.idea
-*.log
-*.iml
+# Build custome
 response/*
 download
-*.DS_Store
+
+# Build output directies
+/target
+*/target
+/build
+*/build
+drivers/win/*.exe
+drivers/mac/*
+
+# IntelliJ specific files/directories
+out
+.idea
+*.ipr
+*.iws
+*.iml
+atlassian-ide-plugin.xml
+
+# Eclipse specific files/directories
+.classpath
+.project
+.settings
+.metadata
+# NetBeans specific files/directories
+.nbattrs
+
+# Logs and databases #
+######################
+*.log
+# OS generated files #
+######################
+.DS_Store*
+ehthumbs.db
+Icon?
+Thumbs.db
+
