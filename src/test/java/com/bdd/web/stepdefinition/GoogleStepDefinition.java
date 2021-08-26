@@ -10,9 +10,12 @@ import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Dado;
 import io.cucumber.java.es.Entonces;
 import net.thucydides.core.annotations.Steps;
+import org.hamcrest.CoreMatchers;
 import org.junit.Assert;
 import web.com.bdd.lib.WebDriverManager;
 import web.com.bdd.util.UtilWeb;
+
+import static org.hamcrest.CoreMatchers.containsString;
 
 public class GoogleStepDefinition {
 
@@ -67,12 +70,13 @@ public class GoogleStepDefinition {
 
     @Entonces("valido que el resultado sea: \"([^\"]*)\"$")
     public void valido_resultado(String resultado) {
-        Assert.assertEquals(resultado ,googleConfigStep.obtenerResultado());
+        Assert.assertEquals(resultado, googleConfigStep.busquedaExiste());
     }
 
-    @Entonces("obtengo la lista de opcion del menu principal: \"([^\"]*)\"$")
-    public void obtengoOpciones(String opcion) {
-        Assert.assertEquals(opcion ,googleConfigStep.obtenerCantidadOpciones());
+    @Entonces("valido que el navegador sea: \"([^\"]*)\"$")
+    public void obtengoOpciones(String var) {
+        Assert.assertThat(googleConfigStep.obtenerResultado(), containsString(var));
+
     }
 
 

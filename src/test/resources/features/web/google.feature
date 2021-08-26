@@ -11,6 +11,6 @@ Característica: Abrir Google
   @DEMO_SHADOWROOT
   Escenario: Buscar cantantes de rock - SHADOWROOT
     Dado que abro la pagina de configuracion de Google
-    Cuando busco la configuracion "Usuarios"
-    Entonces valido que el resultado sea: "Usuarios"
-    Y obtengo la lista de opcion del menu principal: "Aspecto"
+    Cuando busco la configuracion "Default browser"
+    Entonces valido que el resultado sea: "Default browser"
+    Y valido que el navegador sea: "Google Chrome"

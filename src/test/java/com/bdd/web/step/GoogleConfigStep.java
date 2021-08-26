@@ -29,12 +29,12 @@ public class GoogleConfigStep {
     }
 
     @Step
-    public String obtenerResultado() {
-        return googleConfigPage().getResultado();
+    public String busquedaExiste() {
+        return googleConfigPage().getBusqueda();
     }
 
     @Step
-    public String obtenerCantidadOpciones() {
-        return googleConfigPage().obtenerCantidadOpciones();
+    public String obtenerResultado() {
+        return googleConfigPage().obtenerResultado();
     }
 }

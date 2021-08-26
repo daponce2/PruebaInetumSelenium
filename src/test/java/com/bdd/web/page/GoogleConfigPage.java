@@ -10,24 +10,24 @@ public class GoogleConfigPage extends Middleware {
         sendKeysElement(element, dato);
     }
 
-    public String getResultado() {
+    public String getBusqueda() {
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        return getTextFromElementInShadowRoot(GoogleConfigPaths.result, getDriver());
+        return getTextFromElementInShadowRoot(GoogleConfigPaths.searchLabel, getDriver());
     }
 
-    public String obtenerCantidadOpciones() {
-        //return getWebElementsInShadowRootByPosition(GoogleConfigPaths.opciones, 0, getDriver()).getAttribute("innerText");
-        return getTextFromElementInShadowRootByPosition(GoogleConfigPaths.opciones, 2, getDriver());
+    public String obtenerResultado() {
+        return getTextFromElementInShadowRoot(GoogleConfigPaths.result, getDriver());
     }
 }
 
 final class GoogleConfigPaths {
     protected static final String searchField = "settings-ui;cr-toolbar;cr-toolbar-search-field#search;div#searchTerm #searchInput";
-    protected static final String result = "settings-ui;settings-main;settings-basic-page;settings-section;#header > h2 > span > span.search-highlight-hit";
-    protected static final String opciones = "settings-ui;settings-menu::iron-selector>a";
+    protected static final String searchLabel = "settings-ui;settings-main;settings-basic-page;settings-section[section=\"defaultBrowser\"];#header > h2 > span > span.search-highlight-hit";
+    protected static final String result = "settings-ui;settings-main;settings-basic-page;settings-section[section=\"defaultBrowser\"]>settings-default-browser-page;div.cr-row.first>div#isDefault>span.search-highlight-wrapper";
+
 
 }
