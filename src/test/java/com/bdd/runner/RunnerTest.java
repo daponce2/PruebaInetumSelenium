@@ -23,7 +23,7 @@ import static environment.ManageEnvironment.setEnvironment;
         features = {"src/test/resources/features"},
         stepNotifications = true,
         glue = {"com.bdd.web.stepdefinition"},
-        tags = "@DEMO_SHADOWROOT"
+        tags = "@Google"
 )
 
 public class RunnerTest {
