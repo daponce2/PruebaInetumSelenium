@@ -48,11 +48,10 @@ public class RunnerTest {
         if (isJiraOn) {
             UtilWeb.logger(RunnerTest.class).log(Level.INFO, "Actualizar resultados en JiraXray: {0}", isJiraOn);
             JXrayServiceDom jXrayServiceDom = new JXrayServiceDom();
-            Response response = jXrayServiceDom.importTestResultExecution(
+            Response response = jXrayServiceDom.importTestResultExecutionBasic(
                     new JXrayHelperCredentials(getEnvironment()).getJiraHost(),
                     cucumberJsonPath,
-                    new JXrayHelperCredentials(getEnvironment()).getJXrayUser(),
-                    new JXrayHelperCredentials(getEnvironment()).getJXrayPassword());
+                    new JXrayHelperCredentials(getEnvironment()).getAPIToken());
             response.then().assertThat().statusCode(200);
 
         } else {
