@@ -27,7 +27,7 @@ public class GoogleConfigPage extends Middleware {
 final class GoogleConfigPaths {
     protected static final String searchField = "settings-ui;cr-toolbar;cr-toolbar-search-field#search;div#searchTerm #searchInput";
     protected static final String searchLabel = "settings-ui;settings-main;settings-basic-page;settings-section[section=\"defaultBrowser\"];#header > h2 > span > span.search-highlight-hit";
-    protected static final String result = "settings-ui;settings-main;settings-basic-page;settings-section[section=\"defaultBrowser\"]>settings-default-browser-page;div.cr-row.first>div.flex.cr-padded-text>div.secondary>span.search-highlight-wrapper";
+    protected static final String result = "settings-ui;settings-main;settings-basic-page;settings-section[section=\"defaultBrowser\"]>settings-default-browser-page;div.cr-row.first>div#isDefault>span.search-highlight-wrapper";
 
 
 }
