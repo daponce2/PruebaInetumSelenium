@@ -75,6 +75,8 @@ public class GoogleStepDefinition {
 
     @Entonces("valido que el navegador sea: \"([^\"]*)\"$")
     public void obtengoOpciones(String var) {
+        System.out.println(var);
+        System.out.println(googleConfigStep.obtenerResultado());
         Assert.assertThat(googleConfigStep.obtenerResultado(), containsString(var));
 
     }
