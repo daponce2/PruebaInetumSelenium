@@ -1,22 +1,23 @@
 package com.bdd.runner;
 
-import environment.SystemEnvironmentVariables;
+import ct.com.core.environment.SystemEnvironmentVariables;
+import ct.com.core.jxray.dom.JXrayProperties;
+import ct.com.core.jxray.dom.JXrayServiceDom;
+import ct.com.core.jxray.help.JXrayHelperCredentials;
 import io.cucumber.junit.CucumberOptions;
 import io.restassured.response.Response;
 import net.serenitybdd.cucumber.CucumberWithSerenity;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
-import web.com.bdd.jxray.dom.JXrayProperties;
-import web.com.bdd.jxray.dom.JXrayServiceDom;
-import web.com.bdd.jxray.help.JXrayHelperCredentials;
 import web.com.bdd.lib.WebDriverManager;
 import web.com.bdd.util.UtilWeb;
 
 import java.util.logging.Level;
 
-import static environment.ManageEnvironment.getEnvironment;
-import static environment.ManageEnvironment.setEnvironment;
+import static ct.com.core.environment.ManageEnvironment.setEnvironment;
+import static ct.com.core.environment.ManageEnvironment.getEnvironment;
+
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(plugin = {"json:target/build/cucumber.json"},

@@ -2,8 +2,9 @@ package com.bdd.web.step;
 
 
 import com.bdd.web.page.LoginPage;
-import environment.EnvironmentSpecificConfiguration;
-import environment.EnvironmentVariables;
+
+import ct.com.core.environment.EnvironmentSpecificConfiguration;
+import ct.com.core.environment.EnvironmentVariables;
 import net.thucydides.core.annotations.Step;
 import web.com.bdd.lib.WebDriverManager;
 
