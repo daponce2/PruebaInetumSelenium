@@ -1,5 +1,10 @@
 <h1>Continuous Testing - Web</h1>
 
+###Documentación
+Visita nuestro sitio en [Confluence](https://confluence.lima.bcp.com.pe/display/INCTTC/Framework+de+Continuous+Testing)
+
+###About
+
 Este script permitira simular la acción humana a travéz de lineas de comandos enviados por metodos públicos dentro del
 framework para interactuar con los componentes web de un aplicativo.
 
@@ -160,11 +165,10 @@ JXrayServiceDom ubicada en el jar dependencia
         if (isJiraOn) {
             UtilWeb.logger(RunnerTest.class).log(Level.INFO, "Actualizar resultados en JiraXray: {0}", isJiraOn);
             JXrayServiceDom jXrayServiceDom = new JXrayServiceDom();
-            Response response = jXrayServiceDom.importTestResultExecution(
+            Response response = jXrayServiceDom.importTestResultExecutionBasic(
                     new JXrayHelperCredentials(getEnvironment()).getJiraHost(),
                     cucumberJsonPath,
-                    new JXrayHelperCredentials(getEnvironment()).getJXrayUser(),
-                    new JXrayHelperCredentials(getEnvironment()).getJXrayPassword());
+                    new JXrayHelperCredentials(getEnvironment()).getAPIToken());
             response.then().assertThat().statusCode(200);
 
         } else {
