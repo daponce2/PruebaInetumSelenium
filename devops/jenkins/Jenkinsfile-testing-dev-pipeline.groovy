@@ -2,7 +2,6 @@
 //@Library('testing-jenkins-sharedlib-develop') 
 @Library('testing-sharedlib@feature/pipeline-api-web')
 
-import sharedlib.JenkinsfileUtil
 import sharedlib.testing.MavenFunctionalTest
 
 def recipients=''

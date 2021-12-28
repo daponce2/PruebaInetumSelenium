@@ -1,7 +1,6 @@
 @Library('jenkins-sharedlib@master')
 @Library('testing-jenkins-sharedlib-develop') 
 
-import sharedlib.JenkinsfileUtil
 import sharedlib.testing.MavenFunctionalTest
 
 def recipients=''
