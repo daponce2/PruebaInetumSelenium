@@ -10,7 +10,6 @@ import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Dado;
 import io.cucumber.java.es.Entonces;
 import net.thucydides.core.annotations.Steps;
-import org.hamcrest.CoreMatchers;
 import org.junit.Assert;
 import web.com.bdd.lib.WebDriverManager;
 import web.com.bdd.util.UtilWeb;
@@ -80,6 +79,4 @@ public class GoogleStepDefinition {
         Assert.assertThat(googleConfigStep.obtenerResultado(), containsString(var));
 
     }
-
-
 }

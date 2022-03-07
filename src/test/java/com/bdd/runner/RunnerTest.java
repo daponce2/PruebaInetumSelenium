@@ -24,7 +24,7 @@ import static ct.com.core.environment.ManageEnvironment.getEnvironment;
         features = {"src/test/resources/features"},
         stepNotifications = true,
         glue = {"com.bdd.web.stepdefinition"},
-        tags = "@DEMO_SHADOWROOT"
+        tags = "@bitbucket"
 )
 
 public class RunnerTest {
