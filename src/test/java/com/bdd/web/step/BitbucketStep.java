@@ -1,14 +1,12 @@
 package com.bdd.web.step;
 
 import com.bdd.web.page.BitbucketPage;
-import com.bdd.web.page.GooglePage;
-import environment.ManageEnvironment;
+import ct.com.core.environment.ManageEnvironment;
 import net.thucydides.core.annotations.Step;
 import web.com.bdd.lib.WebDriverManager;
 import web.com.bdd.util.UtilWeb;
 
 import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
 
 public class BitbucketStep {
 
@@ -19,7 +17,7 @@ public class BitbucketStep {
     @Step("Abrir pagina")
     public void openPage() throws Exception {
         WebDriverManager.setWebDriver(ManageEnvironment.getEnvironment());
-        String url = UtilWeb.getStringEvironmentProperty(ManageEnvironment.getEnvironment(), "url.demo");
+        String url = UtilWeb.getStringEvironmentProperty(ManageEnvironment.getEnvironment(), "url.bitbucket");
         WebDriverManager.setUrl(url);
         WebDriverManager.getWebDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
