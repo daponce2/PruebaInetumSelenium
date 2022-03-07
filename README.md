@@ -39,7 +39,7 @@ web.browserName.headless=true  // false, true
 ```
 
 <h3>¿Cómo ejecuto el proyecto?</h3>
-> clean verify -Dcucumber.filter.tags=@Google -Denvironment=desarrollo
+> clean verify -Dcucumber.filter.tags=@Google -Denvironment=dev
 
 
 El reporte total generado por serenity se encontrará en la siguiente ruta:
