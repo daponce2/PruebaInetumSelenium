@@ -1,7 +1,8 @@
 package com.bdd.web.step;
 
 import com.bdd.web.page.GoogleConfigPage;
-import environment.ManageEnvironment;
+
+import ct.com.core.environment.ManageEnvironment;
 import net.thucydides.core.annotations.Step;
 import web.com.bdd.lib.WebDriverManager;
 import web.com.bdd.util.UtilWeb;

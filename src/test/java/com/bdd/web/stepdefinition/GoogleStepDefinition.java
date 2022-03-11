@@ -10,7 +10,6 @@ import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Dado;
 import io.cucumber.java.es.Entonces;
 import net.thucydides.core.annotations.Steps;
-import org.hamcrest.CoreMatchers;
 import org.junit.Assert;
 import web.com.bdd.lib.WebDriverManager;
 import web.com.bdd.util.UtilWeb;
@@ -75,9 +74,9 @@ public class GoogleStepDefinition {
 
     @Entonces("valido que el navegador sea: \"([^\"]*)\"$")
     public void obtengoOpciones(String var) {
+        System.out.println(var);
+        System.out.println(googleConfigStep.obtenerResultado());
         Assert.assertThat(googleConfigStep.obtenerResultado(), containsString(var));
 
     }
-
-
 }
