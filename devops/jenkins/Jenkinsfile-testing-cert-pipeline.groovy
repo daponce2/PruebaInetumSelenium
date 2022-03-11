@@ -1,5 +1,5 @@
 @Library('jenkins-sharedlib@master')
-@Library('testing-jenkins-sharedlib-develop')
+@Library('testing-jenkins-sharedlib')
 
 import sharedlib.JenkinsfileUtil
 import sharedlib.testing.MavenFunctionalTest
