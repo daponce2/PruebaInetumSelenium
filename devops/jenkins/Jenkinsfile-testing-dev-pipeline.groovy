@@ -1,5 +1,4 @@
 @Library('jenkins-sharedlib@master')
-//@Library('testing-jenkins-sharedlib-develop')//branch develop
 @Library('testing-jenkins-sharedlib')//branch master
 
 import sharedlib.JenkinsfileUtil
@@ -53,7 +52,7 @@ try {
       utilsTesting.setBrowserDriver(browserDriver)
 
       //opción disponible en proximo release del framework 1.1
-      utilsTesting.setUseJiraCredentials(true)
+      utilsTesting.setUseJiraCredentials(false)
 
       utilsTesting.executeFunctionalTest(scenarios, type)
     }
