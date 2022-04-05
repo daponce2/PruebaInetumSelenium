@@ -19,9 +19,7 @@ public class GoogleStep {
         WebDriverManager.setWebDriver(ManageEnvironment.getEnvironment());
         String url = UtilWeb.getStringEvironmentProperty(ManageEnvironment.getEnvironment(), "url.google");
         WebDriverManager.setUrl(url);
-        Duration duration = Duration.ofSeconds(10);
-        WebDriverManager.getWebDriver().manage().timeouts().implicitlyWait(duration);
-
+        WebDriverManager.getWebDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
     @Step("Realizar una busqueda")
