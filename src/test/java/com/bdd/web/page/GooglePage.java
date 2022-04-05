@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import web.com.bdd.base.Middleware;
 import web.com.bdd.util.UtilWeb;
 
+import java.time.Duration;
 import java.util.logging.Level;
 
 public class GooglePage extends Middleware {
@@ -24,7 +25,7 @@ public class GooglePage extends Middleware {
     public void escribirBusqueda(String dato) {
         UtilWeb.logger(this.getClass()).log(Level.INFO, "escribirBusqueda");
         Util.screenshot(getDriver());
-        WebDriverWait webDriverWait = new WebDriverWait(getDriver(), 20);
+        WebDriverWait webDriverWait = new WebDriverWait(getDriver(), Duration.ofSeconds(20));
         webDriverWait.until(ExpectedConditions.elementToBeClickable(editTextBuscar)).click();
         UtilWeb.logger(this.getClass()).log(Level.INFO, "click");
         webDriverWait.until(ExpectedConditions.elementToBeClickable(editTextBuscar)).sendKeys(dato);

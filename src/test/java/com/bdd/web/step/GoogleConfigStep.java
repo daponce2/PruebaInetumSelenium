@@ -8,7 +8,7 @@ import web.com.bdd.lib.WebDriverManager;
 import web.com.bdd.util.UtilWeb;
 
 import java.net.MalformedURLException;
-import java.util.concurrent.TimeUnit;
+import java.time.Duration;
 
 public class GoogleConfigStep {
 
@@ -21,7 +21,8 @@ public class GoogleConfigStep {
         WebDriverManager.setWebDriver(ManageEnvironment.getEnvironment());
         WebDriverManager.setUrl(UtilWeb.getStringEvironmentProperty(ManageEnvironment.getEnvironment(), "url.shadow"));
         WebDriverManager.maximizeWindows();
-        WebDriverManager.setDriverImplicitWait(15, TimeUnit.SECONDS);
+        Duration duration = Duration.ofSeconds(15);
+        WebDriverManager.setDriverImplicitWait(duration);
     }
 
     @Step
