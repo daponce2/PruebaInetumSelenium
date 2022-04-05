@@ -77,7 +77,7 @@ public class GoogleStepDefinition {
     public void obtengoOpciones(String var) {
         System.out.println(var);
         System.out.println(googleConfigStep.obtenerResultado());
-        Assert.assertTrue (googleConfigStep.obtenerResultado().contains(var));
+        Assert.assertTrue(googleConfigStep.obtenerResultado().contains(var));
 
 
     }
