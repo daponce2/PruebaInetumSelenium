@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import web.com.bdd.base.Middleware;
 import web.com.bdd.util.UtilWeb;
 
+import java.time.Duration;
 import java.util.logging.Level;
 
 public class BitbucketPage extends Middleware {
@@ -27,21 +28,21 @@ public class BitbucketPage extends Middleware {
     public void escribirUser(String u) {
         UtilWeb.logger(this.getClass()).log(Level.INFO, "Escribiendo usuario..");
         Util.screenshot(getDriver());
-        WebDriverWait webDriverWait = new WebDriverWait(getDriver(), 20);
+        WebDriverWait webDriverWait = new WebDriverWait(getDriver(), Duration.ofSeconds(20));
         webDriverWait.until(ExpectedConditions.elementToBeClickable(txtUserName)).sendKeys(u);
     }
 
     public void escribirPassword(String p) {
         UtilWeb.logger(this.getClass()).log(Level.INFO, "Escribiendo usuario..");
         Util.screenshot(getDriver());
-        WebDriverWait webDriverWait = new WebDriverWait(getDriver(), 20);
+        WebDriverWait webDriverWait = new WebDriverWait(getDriver(), Duration.ofSeconds(20));
         webDriverWait.until(ExpectedConditions.elementToBeClickable(txtPassword)).sendKeys(p);
     }
 
     public void clickLogin() {
         UtilWeb.logger(this.getClass()).log(Level.INFO, "Click en boton Login");
         Util.screenshot(getDriver());
-        WebDriverWait webDriverWait = new WebDriverWait(getDriver(), 20);
+        WebDriverWait webDriverWait = new WebDriverWait(getDriver(), Duration.ofSeconds(20));
         webDriverWait.until(ExpectedConditions.elementToBeClickable(btnLogin)).click();
     }
 

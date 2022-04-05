@@ -6,7 +6,7 @@ import net.thucydides.core.annotations.Step;
 import web.com.bdd.lib.WebDriverManager;
 import web.com.bdd.util.UtilWeb;
 
-import java.util.concurrent.TimeUnit;
+import java.time.Duration;
 
 public class GoogleStep {
 
@@ -19,7 +19,8 @@ public class GoogleStep {
         WebDriverManager.setWebDriver(ManageEnvironment.getEnvironment());
         String url = UtilWeb.getStringEvironmentProperty(ManageEnvironment.getEnvironment(), "url.google");
         WebDriverManager.setUrl(url);
-        WebDriverManager.getWebDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        Duration duration = Duration.ofSeconds(10);
+        WebDriverManager.getWebDriver().manage().timeouts().implicitlyWait(duration);
 
     }
 
