@@ -60,7 +60,7 @@
         <dependency>
             <groupId>com.bcp.continuous-testing</groupId>
             <artifactId>web-continuous-testing</artifactId>
-            <version>1.2.0-SNAPSHOT</version>
+            <version>1.2.0</version>
         </dependency>
 
         <dependency>
