@@ -11,6 +11,6 @@ Característica: Abrir Google
   @DEMO_SHADOWROOT
   Escenario: Buscar configuracion de Chrome con  SHADOWROOT
     Dado que abro la pagina de configuracion de Google
-    Cuando busco la configuracion "Navegador predeterminado"
-    Entonces valido que el resultado sea: "Navegador predeterminado"
+    Cuando busco la configuracion "Default browser"
+    Entonces valido que el resultado sea: "Default browser"
     Y valido que el navegador sea: "Google Chrome"
