@@ -19,9 +19,7 @@ public class BitbucketStep {
         WebDriverManager.setWebDriver(ManageEnvironment.getEnvironment());
         String url = UtilWeb.getStringEvironmentProperty(ManageEnvironment.getEnvironment(), "url.bitbucket");
         WebDriverManager.setUrl(url);
-        Duration duration = Duration.ofSeconds(10);
-        WebDriverManager.getWebDriver().manage().timeouts().implicitlyWait(duration);
-
+        WebDriverManager.getWebDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
     @Step("Ingresa su información")
