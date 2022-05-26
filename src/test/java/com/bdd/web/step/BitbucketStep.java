@@ -6,7 +6,7 @@ import net.thucydides.core.annotations.Step;
 import web.com.bdd.lib.WebDriverManager;
 import web.com.bdd.util.UtilWeb;
 
-import java.util.concurrent.TimeUnit;
+import java.time.Duration;
 
 public class BitbucketStep {
 
@@ -19,8 +19,7 @@ public class BitbucketStep {
         WebDriverManager.setWebDriver(ManageEnvironment.getEnvironment());
         String url = UtilWeb.getStringEvironmentProperty(ManageEnvironment.getEnvironment(), "url.bitbucket");
         WebDriverManager.setUrl(url);
-        WebDriverManager.getWebDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
+        WebDriverManager.getWebDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
     @Step("Ingresa su información")
