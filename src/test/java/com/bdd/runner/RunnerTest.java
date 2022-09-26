@@ -24,7 +24,7 @@ import static ct.com.core.environment.ManageEnvironment.getEnvironment;
         features = {"src/test/resources/features"},
         stepNotifications = true,
         glue = {"com.bdd.web.stepdefinition"},
-        tags = ""
+        tags = "@bitbucket"
 )
 
 public class RunnerTest {
@@ -35,7 +35,7 @@ public class RunnerTest {
         setEnvironment(SystemEnvironmentVariables.createEnvironmentVariables());
     }
 
-    /*@AfterClass
+    @AfterClass
     public static void afterExecution() {
         UtilWeb.logger(RunnerTest.class).info("AFTER >>>");
 
@@ -58,6 +58,6 @@ public class RunnerTest {
             UtilWeb.logger(RunnerTest.class).log(Level.INFO, "Actualizar resultados en JiraXray: {0}", isJiraOn);
         }
 
-    }*/
+    }
 
 }

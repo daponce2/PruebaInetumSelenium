@@ -49,11 +49,18 @@
     <!-- Configuracion ART-PROD-BCP-->
 
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/net.serenity-bdd/serenity-cucumber6 -->
+        <dependency>
+            <groupId>net.serenity-bdd</groupId>
+            <artifactId>serenity-cucumber</artifactId>
+            <version>3.2.0</version>
+        </dependency>
+
         <!-- DEPENDENCIA FM CONTINUOUS-TESTING -->
         <dependency>
             <groupId>com.bcp.continuous-testing</groupId>
             <artifactId>web-continuous-testing</artifactId>
-            <version>1.3.0-SNAPSHOT</version>
+            <version>1.2.0</version>
         </dependency>
 
         <dependency>
@@ -62,15 +69,7 @@
             <version>4.13.2</version>
         </dependency>
     </dependencies>
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>com.google.guava</groupId>
-                <artifactId>guava</artifactId>
-                <version>31.0.1-jre</version>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+
     <build>
         <plugins>
             <plugin>
